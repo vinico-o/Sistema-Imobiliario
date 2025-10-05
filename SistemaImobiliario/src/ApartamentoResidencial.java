@@ -34,6 +34,10 @@ public class ApartamentoResidencial extends Imovel {
         System.out.println("valor de Condominio: " + valorCondominio);
     }
     
+    public float getValorAluguel() {
+        return super.getValorAluguel() + super.getValorAluguel() * valorCondominio;
+    }
+    
     //GETTERS E SETTERS
     public int getAndar() {
         return andar;

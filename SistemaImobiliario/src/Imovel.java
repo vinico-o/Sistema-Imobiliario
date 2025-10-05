@@ -20,6 +20,26 @@ public class Imovel {
     protected float valorVenda;
     protected float valorAluguel;
 
+    //CONSTUTORES
+    public Imovel() {
+        
+    }
+    
+    public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+        this.codigoImovel = codigoImovel;
+        this.endereco = endereco;
+        this.dataConstrucao = dataConstrucao;
+        this.areaTotal = areaTotal;
+        this.areaConstruida = areaConstruida;
+        this.qtdDormitorios = qtdDormitorios;
+        this.qtdBanheiros = qtdBanheiros;
+        this.qtdsVagasGaragem = qtdsVagasGaragem;
+        this.valorIPTU = valorIPTU;
+        this.valorVenda = valorVenda;
+        this.valorAluguel = valorAluguel;
+    }
+    
+    
     //METODOS
     public void imprimir(){
         System.out.println("DADOS DO IMOVEL");

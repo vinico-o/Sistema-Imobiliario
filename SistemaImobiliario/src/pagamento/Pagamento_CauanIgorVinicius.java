@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package trabalho;
+package pagamento;
 
 /**
  *
@@ -28,5 +28,5 @@ public abstract class Pagamento_CauanIgorVinicius {
     
     
     @Override
-    public abstract String toString()
+    public abstract String toString();
 }

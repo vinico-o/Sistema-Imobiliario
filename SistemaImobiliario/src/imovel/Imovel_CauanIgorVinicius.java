@@ -9,7 +9,7 @@ import java.time.LocalDate;
  *
  * @author Vinícius Mardegan
  */
-public class Imovel {
+public class Imovel_CauanIgorVinicius {
     protected int codigoImovel;
     protected String endereco;
     protected LocalDate dataConstrucao;
@@ -23,11 +23,11 @@ public class Imovel {
     protected float valorAluguel;
 
     //CONSTUTORES
-    public Imovel() {
+    public Imovel_CauanIgorVinicius() {
         
     }
     
-    public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public Imovel_CauanIgorVinicius(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
         this.codigoImovel = codigoImovel;
         this.endereco = endereco;
         this.dataConstrucao = dataConstrucao;

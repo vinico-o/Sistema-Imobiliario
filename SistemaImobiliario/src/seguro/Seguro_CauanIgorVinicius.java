@@ -8,7 +8,7 @@ package seguro;
  *
  * @author Vinícius Mardegan
  */
-public class Seguro {
+public class Seguro_CauanIgorVinicius {
     private int codigoSEguro;
     private String nomeSeguradora;
     private String tipo;
@@ -16,11 +16,11 @@ public class Seguro {
     private float valor;
     
     //CONSTRUTORES
-    public Seguro() {
+    public Seguro_CauanIgorVinicius() {
         
     }
 
-    public Seguro(int codigoSEguro, String nomeSeguradora, String tipo, String descricao, float valor) {
+    public Seguro_CauanIgorVinicius(int codigoSEguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         this.codigoSEguro = codigoSEguro;
         this.nomeSeguradora = nomeSeguradora;
         this.tipo = tipo;

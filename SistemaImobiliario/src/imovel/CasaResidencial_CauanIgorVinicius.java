@@ -12,13 +12,13 @@ import java.time.LocalDate;
  *
  * @author Vinícius Mardegan
  */
-public class CasaResidencial extends Imovel {
+public class CasaResidencial_CauanIgorVinicius extends Imovel_CauanIgorVinicius {
     //CONSTRUTORES
-    public CasaResidencial() {
+    public CasaResidencial_CauanIgorVinicius() {
         
     }
     
-    public CasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public CasaResidencial_CauanIgorVinicius(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
         super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdsVagasGaragem, valorIPTU, valorVenda, valorAluguel);
     }
 }

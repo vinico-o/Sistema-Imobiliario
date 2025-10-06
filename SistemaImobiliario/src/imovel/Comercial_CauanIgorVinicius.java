@@ -12,15 +12,15 @@ import java.time.LocalDate;
  *
  * @author Vinícius Mardegan
  */
-public class Comercial extends Imovel {
+public class Comercial_CauanIgorVinicius extends Imovel_CauanIgorVinicius {
     protected float taxaImpostoFederal;
     
     //CONSTRUTORES
-    public Comercial() {
+    public Comercial_CauanIgorVinicius() {
         
     }
     
-    public Comercial(float taxaImpostoFederal, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public Comercial_CauanIgorVinicius(float taxaImpostoFederal, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
         super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdsVagasGaragem, valorIPTU, valorVenda, valorAluguel);
         this.taxaImpostoFederal = taxaImpostoFederal;
     }

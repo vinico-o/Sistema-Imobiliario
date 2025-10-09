@@ -36,6 +36,11 @@ public class Comercial_CauanIgorVinicius extends Imovel_CauanIgorVinicius {
     public float getValorAluguel() {
         return super.getValorAluguel() + super.getValorAluguel() * taxaImpostoFederal;
     }
+
+    @Override
+    public String toString() {
+        return "Comercial_CauanIgorVinicius{" + "taxaImpostoFederal=" + taxaImpostoFederal + '}';
+    }
     
     //GETTERS E SETTERS
     public float getTaxaImpostoFederal() {

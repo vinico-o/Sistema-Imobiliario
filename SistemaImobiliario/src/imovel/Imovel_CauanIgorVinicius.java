@@ -57,6 +57,11 @@ public class Imovel_CauanIgorVinicius {
         System.out.println("Valor de venda: R$ " + valorVenda);
         System.out.println("Valor de aluguel: R$ " + valorAluguel);
     }
+
+    @Override
+    public String toString() {
+        return "Imovel_CauanIgorVinicius{" + "codigoImovel=" + codigoImovel + ", endereco=" + endereco + ", dataConstrucao=" + dataConstrucao + ", areaTotal=" + areaTotal + ", areaConstruida=" + areaConstruida + ", qtdDormitorios=" + qtdDormitorios + ", qtdBanheiros=" + qtdBanheiros + ", qtdsVagasGaragem=" + qtdsVagasGaragem + ", valorIPTU=" + valorIPTU + ", valorVenda=" + valorVenda + ", valorAluguel=" + valorAluguel + '}';
+    }
     
     //GETTERS E SETTERS
     public int getCodigoImovel() {

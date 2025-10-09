@@ -38,7 +38,7 @@ public class PredioResidencial_CauanIgorVinicius extends Imovel_CauanIgorViniciu
     
     @Override
     public float getValorAluguel() {
-        return super.getValorAluguel() + super.getValorAluguel() * valorCondominio;
+        return super.getValorAluguel() + this.valorCondominio;
     }
 
     @Override

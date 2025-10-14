@@ -1,5 +1,9 @@
 package configuracao;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /*
@@ -13,7 +17,7 @@ import java.io.Serializable;
  */
 public class Configuracao_CauanIgorVinicius implements Serializable{
     
-    // ADICIONAR ESCRITA EM ARQUIVO
+    
     
     private String arquivoAlugueis;
     private String arquivoVendas;
@@ -83,5 +87,51 @@ public class Configuracao_CauanIgorVinicius implements Serializable{
     }
     
     
-    
+    public static <T extends Serializable> void salvarObjetos(T objeto, String arquivo)
+    {
+        try
+        {            
+            FileOutputStream fout = new FileOutputStream(arquivo);
+
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            
+            oos.writeObject(objeto);
+
+            
+        }
+        catch (Exception e)
+        {
+            
+            System.err.println("Erro ao salvar os objetos - " + arquivo);
+
+             e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked") // Apaga a mensagem de "unchecked casting"
+    public static <T extends Serializable> T lerObjetos(String arquivo)
+    {
+        try{
+
+		   FileInputStream fin = new FileInputStream(arquivo);
+
+		   ObjectInputStream ois = new ObjectInputStream(fin);
+
+		   T objeto = (T) ois.readObject();
+           
+           ois.close();
+           fin.close();
+
+           return objeto;
+                   
+	   }
+       catch (Exception e){
+
+		   System.out.println("Erro ao ler o objeto - retornando null ao vetor!");
+
+            e.printStackTrace();
+
+           return null;
+	   }
+    }
 }

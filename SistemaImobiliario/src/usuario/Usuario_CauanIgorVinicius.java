@@ -1,5 +1,6 @@
 package usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -11,7 +12,7 @@ import java.time.LocalDate;
  *
  * @author Cauan
  */
-public class Usuario_CauanIgorVinicius {
+public class Usuario_CauanIgorVinicius implements Serializable{
  
     protected int codigoUsuario;
     protected String nome;

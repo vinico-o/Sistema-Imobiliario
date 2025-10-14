@@ -4,11 +4,13 @@
  */
 package seguro;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Vinícius Mardegan
  */
-public class Seguro_CauanIgorVinicius {
+public class Seguro_CauanIgorVinicius implements Serializable{
     private int codigoSEguro;
     private String nomeSeguradora;
     private String tipo;

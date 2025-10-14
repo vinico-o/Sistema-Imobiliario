@@ -5,6 +5,7 @@
 package aluguel;
 
 import imovel.Imovel_CauanIgorVinicius;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import pagamento.Pagamento_CauanIgorVinicius;
@@ -16,7 +17,7 @@ import usuario.Corretor_CauanIgorVinicius;
  *
  * @author manoe
  */
-public class Aluguel_CauanIgorVinicius {
+public class Aluguel_CauanIgorVinicius implements Serializable{
     private int codigoAluguel;
     private Cliente_CauanIgorVinicius cliente;
     private Corretor_CauanIgorVinicius corretor;

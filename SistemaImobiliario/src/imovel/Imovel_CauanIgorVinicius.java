@@ -4,12 +4,13 @@ package imovel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+import java.io.Serializable;
 import java.time.LocalDate;
 /**
  *
  * @author Vinícius Mardegan
  */
-public class Imovel_CauanIgorVinicius {
+public class Imovel_CauanIgorVinicius implements Serializable {
     protected int codigoImovel;
     protected String endereco;
     protected LocalDate dataConstrucao;

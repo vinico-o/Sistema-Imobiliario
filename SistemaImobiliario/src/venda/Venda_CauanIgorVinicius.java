@@ -5,6 +5,7 @@
 package venda;
 
 import imovel.Imovel_CauanIgorVinicius;
+import java.io.Serializable;
 import java.time.LocalDate;
 import usuario.Cliente_CauanIgorVinicius;
 import usuario.Corretor_CauanIgorVinicius;
@@ -13,7 +14,7 @@ import usuario.Corretor_CauanIgorVinicius;
  *
  * @author manoe
  */
-public class Venda_CauanIgorVinicius {
+public class Venda_CauanIgorVinicius implements Serializable{
     private int codigoVenda;
     private Cliente_CauanIgorVinicius cliente;
     private Corretor_CauanIgorVinicius corretor;

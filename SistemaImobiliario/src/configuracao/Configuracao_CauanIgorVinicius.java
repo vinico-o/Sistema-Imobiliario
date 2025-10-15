@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.io.File;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -111,6 +112,12 @@ public class Configuracao_CauanIgorVinicius implements Serializable{
     @SuppressWarnings("unchecked") // Apaga a mensagem de "unchecked casting"
     public static <T extends Serializable> T lerObjetos(String arquivo)
     {
+        File file = new File(arquivo);
+        if (!file.exists() || file.length() == 0) {
+            
+            return null;
+        }
+        
         try{
 
 		   FileInputStream fin = new FileInputStream(arquivo);
@@ -131,7 +138,7 @@ public class Configuracao_CauanIgorVinicius implements Serializable{
 
             e.printStackTrace();
 
-           return null;
+            return null;
 	   }
     }
 }

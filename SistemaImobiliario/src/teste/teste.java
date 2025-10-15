@@ -66,6 +66,9 @@ public class teste {
         imobiliaria.addImovel(casa);
         imobiliaria.addImovel(apartamento);
 
+        for(Imovel_CauanIgorVinicius c : imobiliaria.getImoveis()){
+            System.out.println("" + c.toString());
+        }
 
         imobiliaria.salvarObjetos();
     }

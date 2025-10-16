@@ -2,7 +2,11 @@ package imobiliaria;
 
 import aluguel.Aluguel_CauanIgorVinicius;
 import configuracao.Configuracao_CauanIgorVinicius;
+import imovel.CasaResidencial_CauanIgorVinicius;
+import imovel.Comercial_CauanIgorVinicius;
 import imovel.Imovel_CauanIgorVinicius;
+import imovel.PredioResidencial_CauanIgorVinicius;
+
 import java.util.ArrayList;
 import seguro.Seguro_CauanIgorVinicius;
 import usuario.Cliente_CauanIgorVinicius;
@@ -170,5 +174,72 @@ public class Imobiliaria_CauanIgorVinicius {
         Configuracao_CauanIgorVinicius.salvarObjetos(seguros, "arquivos/seguros.dat");
     }
  
-    
+    public void listarTodosImoveis()
+    {
+        System.out.println("TODOS OS IMOVEIS");
+        for (Imovel_CauanIgorVinicius i: imoveis)
+        {
+            System.out.println(i.toString());
+        }
+    }
+
+    public void listarCasaResidencial()
+    {
+        System.out.println("TODAS AS CASAS RESIDENCIAIS");
+        for(Imovel_CauanIgorVinicius cr: imoveis)
+        {
+            if (cr instanceof CasaResidencial_CauanIgorVinicius)
+            {
+                System.out.println(cr.toString());
+            }
+        }
+    }
+
+    public void listarPredio()
+    {
+        System.out.println("LISTANDO PREDIOS");
+        for (Imovel_CauanIgorVinicius pr: imoveis)
+        {
+            if (pr instanceof PredioResidencial_CauanIgorVinicius)
+            {
+                System.out.println(pr.toString());
+            }
+        }
+    }
+
+    public void listarImovelComercial()
+    {
+        System.out.println("LISTANDO IMOVEIS COMERCIAIS");
+        for (Imovel_CauanIgorVinicius cm: imoveis)
+        {
+            if (cm instanceof Comercial_CauanIgorVinicius)
+            {
+                System.out.println(cm.toString());
+            }
+        }
+    }
+
+    public void listarImoveisParaLocacao()
+    {
+        System.out.println("LISTANDO IMOVEIS DISPONIVEIS PARA ALOCACAO");
+        for (Aluguel_CauanIgorVinicius al: alugueis)
+        {
+            if (!(al.getFinalizado()))
+            {
+                System.out.println(al.getImovel().toString());
+            }
+        }
+    }
+
+    public void listarImoveisAlugados()
+    {
+        System.out.println("LISTANDO IMOVEIS ALUGADOS");
+        for (Aluguel_CauanIgorVinicius al: alugueis)
+        {
+            if (al.getFinalizado())
+            {
+                System.out.println(al.getImovel().toString());
+            }
+        }
+    }
 }

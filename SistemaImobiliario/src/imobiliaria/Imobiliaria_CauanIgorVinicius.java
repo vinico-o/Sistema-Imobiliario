@@ -7,6 +7,8 @@ import imovel.Comercial_CauanIgorVinicius;
 import imovel.Imovel_CauanIgorVinicius;
 import imovel.PredioResidencial_CauanIgorVinicius;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import seguro.Seguro_CauanIgorVinicius;
 import usuario.Cliente_CauanIgorVinicius;
@@ -240,6 +242,86 @@ public class Imobiliaria_CauanIgorVinicius {
             {
                 System.out.println(al.getImovel().toString());
             }
+        }
+    }
+
+    public void listarClientesComAluguelAtrasado()
+    {
+        System.out.println("LISTANDO CLIENTES COM ALUGUEL ATRASADO");
+        
+        for (Aluguel_CauanIgorVinicius al: alugueis)
+        {
+            if (!al.getPago() && al.getDataPagamentoMensal().getDayOfMonth() < LocalDateTime.now().getDayOfMonth())
+            {
+                System.out.println(al.getCliente().toString());
+            }
+        }    
+    }
+
+    public void listarAlugueisFinalizadosDevolvidos()
+    {
+        System.out.println("LISTANDO ALUGUEIS FINALIZADOS E DEVOLVIDOS");
+
+        for (Aluguel_CauanIgorVinicius al: alugueis)
+        {
+            if (al.getFinalizado() && al.getDataDevolucao().isBefore(LocalDateTime.now().toLocalDate()))
+            {
+                System.out.println(al.toString());
+            }
+        }
+    }
+
+    public void listarAlugueisDentroDoPrazoLocacao()
+    {
+        System.out.println("LISTANDO ALUGUEIS DENTRO DO PRAZO DE LOCACAO");
+
+        for (Aluguel_CauanIgorVinicius al: alugueis)
+        {
+            if(al.getDataAluguel().isAfter(LocalDateTime.now().toLocalDate()))
+            {
+                System.out.println(al.toString());
+            }
+        }
+    }
+
+    public void listarVendasRealizadas()
+    {
+        System.out.println("LISTANDO VENDAS REALIZADAS");
+
+        for (Venda_CauanIgorVinicius v: vendas)
+        {
+            if (v.getFinalizada())
+            {
+                System.out.println(v.toString());
+            }
+        }
+    }
+
+    public void listarVendasDoMesX(int mes)
+    {
+        System.out.println("LISTANDO VENDAS DO MES " + mes);
+        int soma = 0;
+        for (Venda_CauanIgorVinicius v: vendas)
+        {
+            if (v.getDataVenda().getMonth().getValue() == mes)
+            {
+                soma += v.getValorTotalVenda();
+            }
+        }
+
+        if (soma > 0)
+        {
+            System.out.println("Lucro gerado no mes: " + soma);
+        }
+    }
+
+    public void listarSeguros()
+    {
+        System.out.println("LISTANDO SEGUROS");
+
+        for (Seguro_CauanIgorVinicius s: seguros)
+        {
+            System.out.println(s.toString());
         }
     }
 }

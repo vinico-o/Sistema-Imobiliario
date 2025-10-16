@@ -7,7 +7,6 @@ import imovel.Comercial_CauanIgorVinicius;
 import imovel.Imovel_CauanIgorVinicius;
 import imovel.PredioResidencial_CauanIgorVinicius;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import seguro.Seguro_CauanIgorVinicius;

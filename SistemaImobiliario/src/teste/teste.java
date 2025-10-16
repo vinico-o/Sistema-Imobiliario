@@ -12,17 +12,25 @@ public class teste {
         Imobiliaria_CauanIgorVinicius imobiliaria = new Imobiliaria_CauanIgorVinicius();
 
 
+        if (imobiliaria.getAlugueis() == null) 
+        {
+            imobiliaria.setAlugueis(new ArrayList<>());
+        }
+
+        if (imobiliaria.getVendas() == null) 
+        {
+            imobiliaria.setVendas(new ArrayList<>());
+        }
+
         if (imobiliaria.getImoveis() == null) 
         {
             imobiliaria.setImoveis(new ArrayList<>());
         }
         
-        
         if (imobiliaria.getClientes() == null) 
         {
             imobiliaria.setClientes(new ArrayList<>());
         }
-        
         
         if (imobiliaria.getCorretores() == null)
         {

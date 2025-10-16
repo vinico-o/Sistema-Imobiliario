@@ -5,6 +5,8 @@
 package venda;
 
 import imovel.Imovel_CauanIgorVinicius;
+import pagamento.Pagamento_CauanIgorVinicius;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import usuario.Cliente_CauanIgorVinicius;
@@ -20,13 +22,14 @@ public class Venda_CauanIgorVinicius implements Serializable{
     private Corretor_CauanIgorVinicius corretor;
     private Imovel_CauanIgorVinicius imovel;
     private LocalDate dataVenda;
-    private float formaPagamento;
+    private float valorTotalVenda;
+    private Pagamento_CauanIgorVinicius formaPagamento;
     private Boolean finalizada;
 
     
     public Venda_CauanIgorVinicius() {}
 
-    public Venda_CauanIgorVinicius(int codigoVenda, Cliente_CauanIgorVinicius cliente, Corretor_CauanIgorVinicius corretor, Imovel_CauanIgorVinicius imovel, LocalDate dataVenda, float formaPagamento, Boolean finalizada) {
+    public Venda_CauanIgorVinicius(int codigoVenda, Cliente_CauanIgorVinicius cliente, Corretor_CauanIgorVinicius corretor, Imovel_CauanIgorVinicius imovel, LocalDate dataVenda, Pagamento_CauanIgorVinicius formaPagamento, Boolean finalizada) {
         this.codigoVenda = codigoVenda;
         this.cliente = cliente;
         this.corretor = corretor;
@@ -34,6 +37,14 @@ public class Venda_CauanIgorVinicius implements Serializable{
         this.dataVenda = dataVenda;
         this.formaPagamento = formaPagamento;
         this.finalizada = finalizada;
+    }
+
+    public float getValorTotalVenda(){
+        return valorTotalVenda;
+    }
+
+    public void setValorTotalVenda(float valorTotalVenda){
+        this.valorTotalVenda = valorTotalVenda;
     }
 
     public int getCodigoVenda() {
@@ -76,11 +87,11 @@ public class Venda_CauanIgorVinicius implements Serializable{
         this.dataVenda = dataVenda;
     }
 
-    public float getFormaPagamento() {
+    public Pagamento_CauanIgorVinicius getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(float formaPagamento) {
+    public void setFormaPagamento(Pagamento_CauanIgorVinicius formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 

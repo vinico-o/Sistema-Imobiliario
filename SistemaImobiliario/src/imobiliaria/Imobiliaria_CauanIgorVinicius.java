@@ -323,4 +323,64 @@ public class Imobiliaria_CauanIgorVinicius {
             System.out.println(s.toString());
         }
     }
+    
+    public void listarImoveisDisponiveisVenda (){
+        System.out.println("IMOVEIS DISPONIVEIS PARA VENDA");
+        for(Venda_CauanIgorVinicius i: vendas){
+            if(!(i.getFinalizada())) {
+                System.out.println("" + i.getImovel().toString());
+            }
+        }
+    }
+    
+    public void listarImoveisVendidos () {
+        System.out.println("IMOVEIS VENDIDOS");
+        for(Venda_CauanIgorVinicius i: vendas){
+            if(i.getFinalizada()){
+                System.out.println("" + i.toString());
+            }
+        }
+    }
+    
+    //TODO: REVER COMO VERIFICAR ATRASO NO PAGAMENTO
+    public void listarImoveisAtrasoAluguel() {
+        System.out.println("IMOVEIS COM ATRASO NO PAGAMENTO DO ALUGUEL");
+        for(Aluguel_CauanIgorVinicius i: alugueis) {
+            if(!(i.getPago())){
+                System.out.println("" + i.toString());
+            }
+        }
+    }
+    
+    public void listarImoveisAlugadosPorCliente(String c){
+        System.out.println("IMOVEIS ALUGADOS PELO CLIENTE " + c);
+        for(Aluguel_CauanIgorVinicius i: alugueis) {
+            if(i.getCliente().getNome().equals(c)){
+                System.out.println("" + i.toString());
+            }
+        }
+    }
+    
+    public void listarImoveisCompradosPorCliente(String c){
+        System.out.println("IMOVEIS COMPRADOS PELO CLIENTE " + c);
+        for(Venda_CauanIgorVinicius i: vendas) {
+            if(i.getCliente().getNome().equals(c)){
+                System.out.println("" + i.toString());
+            }
+        }
+    }
+    
+    public void listarCorretoresRegistrados(){
+        System.out.println("CORRETORES CADASTRADOS");
+        for(Corretor_CauanIgorVinicius i: corretores){
+            System.out.println("" + i.toString());
+        }
+    }
+    
+    public void listarClientesRegistrados(){
+        System.out.println("CLIENTES CADASTRADOS");
+        for(Corretor_CauanIgorVinicius i: corretores){
+            System.out.println("" + i.toString());
+        }
+    }
 }

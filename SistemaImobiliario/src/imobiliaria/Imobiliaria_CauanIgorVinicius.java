@@ -7,6 +7,7 @@ import imovel.Comercial_CauanIgorVinicius;
 import imovel.Imovel_CauanIgorVinicius;
 import imovel.PredioResidencial_CauanIgorVinicius;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import seguro.Seguro_CauanIgorVinicius;
@@ -65,32 +66,50 @@ public class Imobiliaria_CauanIgorVinicius {
     
     public void addAluguel(Aluguel_CauanIgorVinicius aluguel)
     {
-        alugueis.add(aluguel);
+        if (aluguel != null)
+        {
+            alugueis.add(aluguel);
+        }
     }
     
     public void addAVenda(Venda_CauanIgorVinicius venda)
     {
-        vendas.add(venda);
+        if (venda != null)
+        {
+            vendas.add(venda);
+        }
     }
     
     public void addImovel(Imovel_CauanIgorVinicius imovel)
     {
-        imoveis.add(imovel);
+        if (imovel != null)
+        {
+            imoveis.add(imovel);
+        }
     }
 
     public void addCliente(Cliente_CauanIgorVinicius cliente)
     {
-        clientes.add(cliente);
+        if (cliente != null)
+        {
+            clientes.add(cliente);
+        }
     }
 
     public void addCorretor(Corretor_CauanIgorVinicius corretor)
     {
-        corretores.add(corretor);
+        if (corretor != null)
+        {
+            corretores.add(corretor);
+        }
     }
 
     public void addSeguro(Seguro_CauanIgorVinicius seguro)
     {
-        seguros.add(seguro);
+        if (seguro != null)
+        {
+            seguros.add(seguro);
+        }
     }
 
     public String getNome() {
@@ -250,7 +269,7 @@ public class Imobiliaria_CauanIgorVinicius {
         
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
-            if (!al.getPago() && al.getDataPagamentoMensal().getDayOfMonth() < LocalDateTime.now().getDayOfMonth())
+            if (!al.getPago() && al.getDataPagamentoMensal().getDayOfMonth() < LocalDate.now().getDayOfMonth())
             {
                 System.out.println(al.getCliente().toString());
             }
@@ -263,7 +282,7 @@ public class Imobiliaria_CauanIgorVinicius {
 
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
-            if (al.getFinalizado() && al.getDataDevolucao().isBefore(LocalDateTime.now().toLocalDate()))
+            if (al.getFinalizado() && al.getDataDevolucao().isBefore(LocalDate.now()))
             {
                 System.out.println(al.toString());
             }
@@ -383,4 +402,5 @@ public class Imobiliaria_CauanIgorVinicius {
             System.out.println("" + i.toString());
         }
     }
+
 }

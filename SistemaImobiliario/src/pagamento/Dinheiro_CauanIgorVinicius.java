@@ -8,6 +8,18 @@ package pagamento;
  *
  * @author manoe
  */
-public class Dinheiro_CauanIgorVinicius {
+public class Dinheiro_CauanIgorVinicius extends Pagamento_CauanIgorVinicius{
+
+    public Dinheiro_CauanIgorVinicius() {}
+
+    public Dinheiro_CauanIgorVinicius(String tipoPagamento) {
+        super(tipoPagamento);
+    }
+
+    @Override
+    public String toString() {
+        return getTipoPagamento();
+    }
+    
     
 }

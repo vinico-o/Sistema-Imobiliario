@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import aluguel.Aluguel_CauanIgorVinicius;
+import venda.Venda_CauanIgorVinicius;
 
 public class sistema_CauanIgorVinicius{
 
@@ -355,47 +356,58 @@ public class sistema_CauanIgorVinicius{
     private static void OpListagem(int operacao,Imobiliaria_CauanIgorVinicius imobiliaria)
     {
         int sair =1;
+        Scanner leitor = new Scanner(System.in);
         do{
             
 
             switch(operacao)
             {
                 case 1:
-                    ListarImoveisCasaResidencial(imobiliaria);
+                    imobiliaria.listarCasaResidencial();
                     break;
                     
                 case 2:
-                    ListarImoveisPredioResidencial(imobiliaria);
+                    imobiliaria.listarPredio();
                     break;
                     
                 case 3:
-                    ListarImoveisComercial(imobiliaria);
+                    imobiliaria.listarImovelComercial();
                     break;
                     
                 case 4:
-                    ListarImoveisDiponiveisLocacao(imobiliaria);
+                    imobiliaria.listarImoveisParaLocacao();
                     break;
                     
                 case 5:
-                    ListarImoveisAlugados(imobiliaria);
+                    imobiliaria.listarImoveisAlugados();
                     break;
                     
                 case 6:
+                    imobiliaria.listarImoveisDisponiveisVenda();
                     break;
                     
                 case 7:
+                    imobiliaria.listarImoveisVendidos();
                     break;
                     
                 case 8:
+                    imobiliaria.listarImoveisAtrasoAluguel();
                     break;
                     
                 case 9:
+                    System.out.println("Digite o nome do cliente para a busca:");
+                    String c = leitor.nextLine();
+                    imobiliaria.listarImoveisAlugadosPorCliente(c);
                     break;
                     
                 case 10:
+                    System.out.println("Digite o nome do cliente para a busca: ");
+                    String cliente = leitor.nextLine();
+                    imobiliaria.listarImoveisCompradosPorCliente(cliente);
                     break;  
                     
                 case 11:
+                    imobiliaria.listarCorretoresRegistrados();
                     break;
                     
                 case 12:
@@ -403,21 +415,29 @@ public class sistema_CauanIgorVinicius{
                     break;
                     
                 case 13:
+                    imobiliaria.listarClientesComAluguelAtrasado();
                     break;
                     
                 case 14:
+                    imobiliaria.listarAlugueisFinalizadosDevolvidos();
                     break;
                     
                 case 15:
+                    imobiliaria.listarAlugueisDentroDoPrazoLocacao();
                     break;
                     
                 case 16:
+                    imobiliaria.listarVendasRealizadas();
                     break;
                     
                 case 17:
+                    System.out.println("Digite o mês que deseja buscar:");
+                    int month = Integer.parseInt(leitor.nextLine());
+                    imobiliaria.listarVendasDoMesX(month);
                     break;
                     
                 case 18:
+                    imobiliaria.listarSeguros();
                     break;
                     
                 case 19:
@@ -441,7 +461,6 @@ public class sistema_CauanIgorVinicius{
         System.out.println("3- Listar todos os imóveis de categoria Comercial");    
         System.out.println("4- Listar todos os Imóveis disponíveis para locação");
         System.out.println("5- Listar todos os Imóveis alugados");
-        
         System.out.println("6- Listar todos os Imóveis disponíveis para vendas");
         System.out.println("7- Listar todos os Imóveis vendidos");
         System.out.println("8- Listar todos os Imóveis com atraso no pagamento do aluguel");
@@ -456,7 +475,7 @@ public class sistema_CauanIgorVinicius{
         System.out.println("17- Listar Vendas realizadas em um mês em específico e o total de lucro gerado no mês");
         System.out.println("18- Listar todos os tipos de Seguros cadastrados");
         System.out.println("19- Sair");
-        
+     
         Scanner leitor = new Scanner(System.in);
 
         String opcao = leitor.nextLine();
@@ -464,52 +483,7 @@ public class sistema_CauanIgorVinicius{
         return opcao;       
  
     }
-    private static void ListarImoveisAlugados(Imobiliaria_CauanIgorVinicius imobiliaria)
-    {
-        for(Aluguel_CauanIgorVinicius alg : imobiliaria.getAlugueis())
-        {
-            String text = alg.toString();
-            System.out.println(text);
-        }
-    }
-    private static void ListarImoveisDiponiveisLocacao(Imobiliaria_CauanIgorVinicius imobiliaria)
-    {
-         for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
-        {
-            imv.imprimir();
-        }        
-    } 
-    private static void ListarImoveisComercial(Imobiliaria_CauanIgorVinicius imobiliaria)
-    {
-        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
-        {
-            if(imv instanceof Comercial_CauanIgorVinicius)
-            {
-                imv.imprimir();
-            }
-        }         
-    }
-    private static void ListarImoveisPredioResidencial(Imobiliaria_CauanIgorVinicius imobiliaria)
-    {
-        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
-        {
-            if(imv instanceof PredioResidencial_CauanIgorVinicius)
-            {
-                imv.imprimir();
-            }
-        } 
-    }
-    private static void ListarImoveisCasaResidencial(Imobiliaria_CauanIgorVinicius imobiliaria)
-    {
-        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
-        {
-            if(imv instanceof CasaResidencial_CauanIgorVinicius)
-            {
-                imv.imprimir();
-            }
-        }
-    }
-    
+
     private static Aluguel_CauanIgorVinicius cadastrarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
         imobiliaria.listarImoveisParaLocacao();

@@ -22,13 +22,15 @@ public class Imovel_CauanIgorVinicius implements Serializable {
     protected float valorIPTU;
     protected float valorVenda;
     protected float valorAluguel;
+    protected boolean isDisponivel;
+    protected String tipo;
 
     //CONSTUTORES
     public Imovel_CauanIgorVinicius() {
         
     }
     
-    public Imovel_CauanIgorVinicius(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public Imovel_CauanIgorVinicius(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdsVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel, String tipo) {
         this.codigoImovel = codigoImovel;
         this.endereco = endereco;
         this.dataConstrucao = dataConstrucao;
@@ -40,8 +42,19 @@ public class Imovel_CauanIgorVinicius implements Serializable {
         this.valorIPTU = valorIPTU;
         this.valorVenda = valorVenda;
         this.valorAluguel = valorAluguel;
+        this.isDisponivel = true;
+        this.tipo = tipo;
     }
     
+    public String getTipo()
+    {
+        return tipo;
+    }
+
+    public void setTipo(String tipo)
+    {
+        this.tipo = tipo;
+    }
     
     //METODOS
     public void imprimir(){
@@ -88,6 +101,14 @@ public class Imovel_CauanIgorVinicius implements Serializable {
 
     public void setCodigoImovel(int codigoImovel) {
         this.codigoImovel = codigoImovel;
+    }
+
+    public boolean getIsDisponivel(){
+        return isDisponivel;
+    }
+
+    public void setIsDisponivel(boolean isDisponivel){
+        this.isDisponivel = isDisponivel;
     }
 
     public String getEndereco() {

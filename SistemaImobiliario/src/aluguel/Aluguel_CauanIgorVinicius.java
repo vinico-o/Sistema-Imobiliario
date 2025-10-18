@@ -31,6 +31,7 @@ public class Aluguel_CauanIgorVinicius implements Serializable{
     private Boolean finalizado;
     private Boolean pago;
 
+
     
     public Aluguel_CauanIgorVinicius(){}
 
@@ -49,6 +50,7 @@ public class Aluguel_CauanIgorVinicius implements Serializable{
         this.valorTotalAluguel = this.calcularValorTotal();
     }
 
+    
     public int getCodigoAluguel() {
         return codigoAluguel;
     }

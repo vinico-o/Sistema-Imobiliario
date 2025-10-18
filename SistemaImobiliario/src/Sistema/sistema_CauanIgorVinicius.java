@@ -328,6 +328,8 @@ public class sistema_CauanIgorVinicius{
         {
             Venda_CauanIgorVinicius venda = new Venda_CauanIgorVinicius(codigoVenda, clienteVenda, corretorVenda, imovelVenda, dataVenda, valorVenda,pagamento, false);
 
+            imovelVenda.setIsDisponivel(false);
+
             return venda;
         }
         else
@@ -601,6 +603,8 @@ public class sistema_CauanIgorVinicius{
             Aluguel_CauanIgorVinicius aluguel = new Aluguel_CauanIgorVinicius(codigoAluguel, clienteAluguel,
                     corretorAluguel, imovelAluguel, dataAlguel, dataDevolucao, dataPagamentoMensal, pagamento,
                     seguroAluguel, false, false);
+            
+            imovelAluguel.setIsDisponivel(false);
 
             return aluguel;
         } 
@@ -617,6 +621,9 @@ public class sistema_CauanIgorVinicius{
 
         System.out.println("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
+
+        System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
+        int tipo = sc.nextInt();
 
         sc.nextLine();
 
@@ -657,9 +664,19 @@ public class sistema_CauanIgorVinicius{
         System.out.println("valor do condominio: ");
         float valorCondominio = sc.nextFloat();
 
+        String tipoStr;
+        if (tipo == 0)
+        {
+            tipoStr = "aluguel";
+        }
+        else
+        {
+            tipoStr = "venda";
+        }
+
         PredioResidencial_CauanIgorVinicius predioResidencial = new PredioResidencial_CauanIgorVinicius(andar,
                 valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qntDormitorios,
-                qntBanheiros, qntVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+                qntBanheiros, qntVagasGaragem, valorIPTU, valorVenda, valorAluguel, tipoStr);
 
         return predioResidencial;
     }
@@ -671,6 +688,9 @@ public class sistema_CauanIgorVinicius{
 
         System.out.println("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
+
+        System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
+        int tipo = sc.nextInt();
 
         sc.nextLine();
 
@@ -708,9 +728,19 @@ public class sistema_CauanIgorVinicius{
         System.out.println("Imposto federal: ");
         float taxaImpostoFederal = sc.nextFloat();
 
+        String tipoStr;
+        if (tipo == 0)
+        {
+            tipoStr = "aluguel";
+        }
+        else
+        {
+            tipoStr = "venda";
+        }
+
         Comercial_CauanIgorVinicius imovelComercial = new Comercial_CauanIgorVinicius(taxaImpostoFederal, codigoImovel,
                 endereco, dataConstrucao, areaTotal, areaConstruida, qntDormitorios, qntBanheiros, qntVagasGaragem,
-                valorIPTU, valorVenda, valorAluguel);
+                valorIPTU, valorVenda, valorAluguel, tipoStr);
 
         return imovelComercial;
     }
@@ -847,8 +877,10 @@ public class sistema_CauanIgorVinicius{
         System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
-        sc.nextLine();
+        System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
+        int tipo = sc.nextInt();
 
+        sc.nextLine();
         System.out.print("Endereco: ");
         String endereco = sc.nextLine();
 
@@ -880,9 +912,19 @@ public class sistema_CauanIgorVinicius{
         System.out.print("Valor do alguel: ");
         float valorAluguel = sc.nextFloat();
 
+        String tipoStr;
+        if (tipo == 0)
+        {
+            tipoStr = "aluguel";
+        }
+        else
+        {
+            tipoStr = "venda";
+        }
+
         CasaResidencial_CauanIgorVinicius casaResidencial = new CasaResidencial_CauanIgorVinicius(codigoImovel,
                 endereco, dataConstrucao, areaTotal, areaConstruida, qntDormitorios, qntBanheiros, qntVagasGaragem,
-                valorIPTU, valorVenda, valorAluguel);
+                valorIPTU, valorVenda, valorAluguel, tipoStr);
 
         return casaResidencial;
 
@@ -905,7 +947,7 @@ public class sistema_CauanIgorVinicius{
 
             System.out.print("Numero do cartao: ");
             String numero = sc.nextLine();
-
+    
             d = new Cartao_CauanIgorVinicius(nome, bandeira, numero, "cartao");
         }
 

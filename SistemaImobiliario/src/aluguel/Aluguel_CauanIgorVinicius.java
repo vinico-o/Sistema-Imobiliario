@@ -198,7 +198,7 @@ public class Aluguel_CauanIgorVinicius implements Serializable{
                         + "formaPagamento=" + this.formaPagamento + "\n"
                         + "segurosContratados=" + this.segurosContratados + "\n"
                         + "finalizado=" + this.finalizado + "\n"
-                        + "pago=" + this.pago + "\n";        
+                        + "pago=" + this.pago + "\n}";        
     }
     
     

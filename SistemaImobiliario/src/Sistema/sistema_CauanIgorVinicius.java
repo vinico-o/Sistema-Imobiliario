@@ -104,7 +104,8 @@ public class sistema_CauanIgorVinicius{
                     break;
 
                 case 7:
-
+                    //Pagar imovel
+                    
                     
 
                     break;
@@ -118,12 +119,14 @@ public class sistema_CauanIgorVinicius{
                     break;
 
                 case 10:
-
+                    //Aqui no relatorio vou chamar um metod para opções de listagem
+                    int lista = Integer.parseInt(Listagem());
+                    OpListagem(lista,imobiliaria);
                     break;
 
                 case 11:
                     imobiliaria.salvarObjetos();
-
+                    
                     break;
 
                 default:
@@ -136,7 +139,162 @@ public class sistema_CauanIgorVinicius{
         } while (opcao != 11);
 
     }
+    private static void OpListagem(int operacao,Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+        int sair =1;
+        do{
+            
+            switch(operacao)
+            {
+                case 1:
+                    ListarImoveisCasaResidencial(imobiliaria);
+                    break;
+                    
+                case 2:
+                    ListarImoveisPredioResidencial(imobiliaria);
+                    break;
+                    
+                case 3:
+                    ListarImoveisComercial(imobiliaria);
+                    break;
+                    
+                case 4:
+                    ListarImoveisDiponiveisLocacao(imobiliaria);
+                    break;
+                    
+                case 5:
+                    ListarImoveisAlugados(imobiliaria);
+                    break;
+                    
+                case 6:
+                    break;
+                    
+                case 7:
+                    break;
+                    
+                case 8:
+                    break;
+                    
+                case 9:
+                    break;
+                    
+                case 10:
+                    break;  
+                    
+                case 11:
+                    break;
+                    
+                case 12:
+                    break;
+                    
+                case 13:
+                    break;
+                    
+                case 14:
+                    break;
+                    
+                case 15:
+                    break;
+                    
+                case 16:
+                    break;
+                    
+                case 17:
+                    break;
+                    
+                case 18:
+                    break;
+                    
+                case 19:
+                    System.out.println("Saindo da opção de relatórios!");
+                    sair = 0;
+                    break;
+                    
+                default:
+                    System.out.println("Opção invalidada! Digite novamente:");
+                    break;
+                
+                
+            }
+        }while(sair==1);
+    }
+    private static String Listagem()
+    {
+        System.out.println("Digite uma operação de Listagem");
+        System.out.println("1- Listar todos os imóveis de categoria Casa Residencial");
+        System.out.println("2- Listar todos os imóveis de categoria Prédio Residencial");
+        System.out.println("3- Listar todos os imóveis de categoria Comercial");    
+        System.out.println("4- Listar todos os Imóveis disponíveis para locação");
+        System.out.println("5- Listar todos os Imóveis alugados");
+        
+        System.out.println("6- Listar todos os Imóveis disponíveis para vendas");
+        System.out.println("7- Listar todos os Imóveis vendidos");
+        System.out.println("8- Listar todos os Imóveis com atraso no pagamento do aluguel");
+        System.out.println("9- Listar todos os Imóveis já alugados por um Cliente em específico");
+        System.out.println("10- Listar todos os Imóveis já comprados por um Cliente em específico");
+        System.out.println("11- Listar todos os Corretores cadastrados");
+        System.out.println("12- Listar todos os Clientes cadastrados");
+        System.out.println("13- Listar Clientes com aluguéis em atraso");
+        System.out.println("14- Listar todos os Aluguéis finalizados, ou seja, que já concluíram contrato e foram devolvidos");
+        System.out.println("15- Listar todos os Aluguéis ainda dentro do prazo de locação");
+        System.out.println("16- Listar todas as Vendas realizadas");
+        System.out.println("17- Listar Vendas realizadas em um mês em específico e o total de lucro gerado no mês");
+        System.out.println("18- Listar todos os tipos de Seguros cadastrados");
+        System.out.println("19- Sair");
+        
+        Scanner leitor = new Scanner(System.in);
 
+        String opcao = leitor.nextLine();
+
+        return opcao;       
+ 
+    }
+    private static void ListarImoveisAlugados(Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+        for(Aluguel_CauanIgorVinicius alg : imobiliaria.getAlugueis())
+        {
+            String text = alg.toString();
+            System.out.println(text);
+        }
+    }
+    private static void ListarImoveisDiponiveisLocacao(Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+         for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
+        {
+            imv.imprimir();
+        }        
+    } 
+    private static void ListarImoveisComercial(Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
+        {
+            if(imv instanceof Comercial_CauanIgorVinicius)
+            {
+                imv.imprimir();
+            }
+        }         
+    }
+    private static void ListarImoveisPredioResidencial(Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
+        {
+            if(imv instanceof PredioResidencial_CauanIgorVinicius)
+            {
+                imv.imprimir();
+            }
+        } 
+    }
+    private static void ListarImoveisCasaResidencial(Imobiliaria_CauanIgorVinicius imobiliaria)
+    {
+        for(Imovel_CauanIgorVinicius imv : imobiliaria.getImoveis())
+        {
+            if(imv instanceof CasaResidencial_CauanIgorVinicius)
+            {
+                imv.imprimir();
+            }
+        }
+    }
+    
     private static Aluguel_CauanIgorVinicius cadastrarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
         imobiliaria.listarImoveisParaLocacao();
@@ -340,7 +498,7 @@ public class sistema_CauanIgorVinicius{
         System.out.println("4- Cadastrar imovel comercial");
         System.out.println("5- Cadastrar predio residencial");
         System.out.println("6- Alugar imovel");
-        System.out.println("7- Pagar imovel");
+        System.out.println("7- Pagar imovel"); //Seria comprar ou pagar o imovel ou pagar o aluguel?
         System.out.println("8- Finalizar aluguel");
         System.out.println("9- Finalizar venda");
         System.out.println("10- Relatorio");

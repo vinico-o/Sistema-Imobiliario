@@ -256,10 +256,8 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("LISTANDO IMOVEIS ALUGADOS");
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
-            if (al.getFinalizado())
-            {
-                System.out.println(al.getImovel().toString());
-            }
+            System.out.println(al.getImovel().toString());
+            
         }
     }
 
@@ -353,7 +351,9 @@ public class Imobiliaria_CauanIgorVinicius {
     }
     
     public void listarImoveisVendidos () {
+        
         System.out.println("IMOVEIS VENDIDOS");
+        
         for(Venda_CauanIgorVinicius i: vendas){
             if(i.getFinalizada()){
                 System.out.println("" + i.toString());

@@ -29,11 +29,12 @@ public class Venda_CauanIgorVinicius implements Serializable{
     
     public Venda_CauanIgorVinicius() {}
 
-    public Venda_CauanIgorVinicius(int codigoVenda, Cliente_CauanIgorVinicius cliente, Corretor_CauanIgorVinicius corretor, Imovel_CauanIgorVinicius imovel, LocalDate dataVenda, Pagamento_CauanIgorVinicius formaPagamento, Boolean finalizada) {
+    public Venda_CauanIgorVinicius(int codigoVenda, Cliente_CauanIgorVinicius cliente, Corretor_CauanIgorVinicius corretor, Imovel_CauanIgorVinicius imovel, LocalDate dataVenda, float valorTotalVenda, Pagamento_CauanIgorVinicius formaPagamento, Boolean finalizada) {
         this.codigoVenda = codigoVenda;
         this.cliente = cliente;
         this.corretor = corretor;
         this.imovel = imovel;
+        this.valorTotalVenda = valorTotalVenda;
         this.dataVenda = dataVenda;
         this.formaPagamento = formaPagamento;
         this.finalizada = finalizada;

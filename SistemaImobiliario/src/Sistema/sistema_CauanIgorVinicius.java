@@ -8,6 +8,7 @@ import pagamento.Pagamento_CauanIgorVinicius;
 import seguro.Seguro_CauanIgorVinicius;
 import usuario.Cliente_CauanIgorVinicius;
 import usuario.Corretor_CauanIgorVinicius;
+import venda.Venda_CauanIgorVinicius;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -93,9 +94,16 @@ public class sistema_CauanIgorVinicius{
                     imobiliaria.addImovel(predioResidencial);
 
                     break;
-
                 
                 case 6:
+                    Seguro_CauanIgorVinicius seguro = cadastrarSeguro();
+
+                    imobiliaria.addSeguro(seguro);
+
+                    break;
+
+                
+                case 7:
 
                     Aluguel_CauanIgorVinicius aluguel = cadastrarAluguel(imobiliaria);
 
@@ -103,47 +111,252 @@ public class sistema_CauanIgorVinicius{
 
                     break;
 
-                case 7:
-                    //Pagar imovel
-                    
-                    
-
-                    break;
-
                 case 8:
+
+                    Venda_CauanIgorVinicius venda = cadastrarVenda(imobiliaria);
+
+                    imobiliaria.addAVenda(venda);
+
 
                     break;
 
                 case 9:
 
+                    pagarAluguel(imobiliaria);
+
+
                     break;
 
                 case 10:
-                    //Aqui no relatorio vou chamar um metod para opções de listagem
-                    int lista = Integer.parseInt(Listagem());
-                    OpListagem(lista,imobiliaria);
+
+                    finalizarAluguel(imobiliaria);
+
                     break;
 
                 case 11:
+
+                    finalizarVenda(imobiliaria);
+
+                    break;
+
+                case 12:
+            
+                    int lista = Integer.parseInt(Listagem());
+                    OpListagem(lista,imobiliaria);
+
+                    break;
+
+                case 13:
                     imobiliaria.salvarObjetos();
-                    
+                    System.out.println("\nFIM DO PROGRAMA");
+                    System.out.println("---------------------");
+
                     break;
 
                 default:
-                    System.out.println("\nFIM DO PROGRAMA");
-                    System.out.println("---------------------");
+                    System.out.println("\nOpcao invalida");
+
                     break;
 
             }
 
-        } while (opcao != 11);
+        } while (opcao != 12);
 
     }
+
+    private static void finalizarVenda(Imobiliaria_CauanIgorVinicius imobiliaria) {
+        
+        imobiliaria.listarImoveisDisponiveisVenda();
+
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
+
+        System.out.println("Informe o codigo da venda: ");
+        String codigoVenda = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (Venda_CauanIgorVinicius venda: imobiliaria.getVendas())
+        {
+            if (venda.getFinalizada() == false)
+            {
+                encontrado = true;
+                venda.setFinalizada(true);
+                System.out.println("\nVenda finalizada");
+            }
+        }
+        
+        if (encontrado == false)
+        {
+            System.out.println("Venda nao encontrado");
+        }
+
+    }
+
+    private static void finalizarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
+        
+        imobiliaria.listarImoveisAlugados();
+
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
+
+        System.out.println("Informe o codigo do aluguel: ");
+        String codigoAluguel = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (Aluguel_CauanIgorVinicius aluguel: imobiliaria.getAlugueis())
+        {
+            if (aluguel.getFinalizado() == false)
+            {
+                encontrado = true;
+
+                aluguel.setFinalizado(true);
+                System.out.println("\nAluguel finalizado");
+            }
+        }
+
+        if (encontrado == false)
+        {
+            System.out.println("Aluguel nao encontrado");
+        }
+    }
+
+    private static void pagarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
+        
+        imobiliaria.listarImoveisAtrasoAluguel();
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
+
+        System.out.println("Informe o codigo do aluguel: ");
+        String codigoAluguel = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (Aluguel_CauanIgorVinicius aluguel: imobiliaria.getAlugueis())
+        {
+            if (aluguel.getPago() == false)
+            {
+                encontrado = true;
+                aluguel.setPago(true);
+                System.out.println("\nAluguel pago");
+            }
+        }
+
+        if (encontrado == false)
+        {
+            System.out.println("Aluguel nao encontrado");
+        }
+
+    }
+
+    private static Venda_CauanIgorVinicius cadastrarVenda(Imobiliaria_CauanIgorVinicius imobiliaria) {
+        
+        imobiliaria.listarImoveisDisponiveisVenda();
+        imobiliaria.listarCorretoresRegistrados();
+        imobiliaria.listarClientesRegistrados();
+
+        Scanner sc = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+
+        System.out.println("Codigo da venda: ");
+        int codigoVenda = sc.nextInt();
+
+        System.out.println("Codigo do cliente: ");
+        int codigoCliente = sc.nextInt();
+
+        System.out.println("Codigo do corretor: ");
+        int codigoCorretor = sc.nextInt();
+
+        System.out.println("Codigo do imovel: ");
+        int codigoImovel = sc.nextInt();
+
+        sc.nextLine();
+        System.out.println("Data da venda (dd/MM/yyyy): ");
+        String dataStr = sc.nextLine();
+        LocalDate dataVenda = LocalDate.parse(dataStr, formatter);
+
+        System.out.println("Valor total da venda: ");
+        float valorVenda = sc.nextFloat();
+
+        System.out.println("Forma de pagamento: ");
+        int forma = sc.nextInt();
+        Pagamento_CauanIgorVinicius pagamento = cadastrarPagamento(forma);
+
+        
+
+        Corretor_CauanIgorVinicius corretorVenda = null;
+        Cliente_CauanIgorVinicius clienteVenda = null;
+        Imovel_CauanIgorVinicius imovelVenda = null;
+
+        for (Corretor_CauanIgorVinicius c : imobiliaria.getCorretores()) {
+            if (c.getCodigoUsuario() == codigoCorretor) {
+                corretorVenda = c;
+            }
+        }
+
+        for (Cliente_CauanIgorVinicius c : imobiliaria.getClientes()) {
+            if (c.getCodigoUsuario() == codigoCliente) {
+                clienteVenda = c;
+            }
+        }
+
+        for (Imovel_CauanIgorVinicius c : imobiliaria.getImoveis()) {
+            if (c.getCodigoImovel() == codigoImovel) {
+                imovelVenda = c;
+            }
+        }
+
+
+        if (clienteVenda != null && corretorVenda != null && imovelVenda != null)
+        {
+            Venda_CauanIgorVinicius venda = new Venda_CauanIgorVinicius(codigoVenda, clienteVenda, corretorVenda, imovelVenda, dataVenda, valorVenda,pagamento, false);
+
+            return venda;
+        }
+        else
+        {
+            System.out.println("Cadastro de venda sem sucesso - informacoes sobre cliente, corretor ou imovel incorretas");
+
+            return null;
+        }
+
+    }
+
+    private static Seguro_CauanIgorVinicius cadastrarSeguro() {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Codigo do seguro: ");
+        int codigoSeguro = sc.nextInt();
+
+        sc.nextLine();
+
+        System.out.println("Nome da seguradora: ");
+        String nomeSeguradora = sc.nextLine();
+
+        System.out.println("Tipo do seguro: ");
+        String tipo = sc.nextLine();
+
+        System.out.println("Descricao do seguro: ");
+        String descricao = sc.nextLine();
+
+        System.out.println("Valor do seguro: ");
+        float valor = sc.nextFloat();
+
+        Seguro_CauanIgorVinicius seguro = new Seguro_CauanIgorVinicius(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
+
+        return seguro;
+
+    }
+
+    
     private static void OpListagem(int operacao,Imobiliaria_CauanIgorVinicius imobiliaria)
     {
         int sair =1;
         do{
             
+
             switch(operacao)
             {
                 case 1:
@@ -497,12 +710,14 @@ public class sistema_CauanIgorVinicius{
         System.out.println("3- Cadastrar casa residencial");
         System.out.println("4- Cadastrar imovel comercial");
         System.out.println("5- Cadastrar predio residencial");
-        System.out.println("6- Alugar imovel");
-        System.out.println("7- Pagar imovel"); //Seria comprar ou pagar o imovel ou pagar o aluguel?
-        System.out.println("8- Finalizar aluguel");
-        System.out.println("9- Finalizar venda");
-        System.out.println("10- Relatorio");
-        System.out.println("11- Sair");
+        System.out.println("6- Cadastrar seguro");
+        System.out.println("7- Alugar imovel");
+        System.out.println("8- Vender imovel");
+        System.out.println("9- Pagar aluguel");
+        System.out.println("10- Finalizar aluguel");
+        System.out.println("11- Finalizar venda");
+        System.out.println("12- Relatorio");
+        System.out.println("13- Sair");
 
         Scanner leitor = new Scanner(System.in);
 

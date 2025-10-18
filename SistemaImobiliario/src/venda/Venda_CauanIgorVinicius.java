@@ -116,4 +116,11 @@ public class Venda_CauanIgorVinicius implements Serializable{
                         + "Esta finalizada? " + this.finalizada ;
     }                   
     
+    public String listagemSimples()
+    {
+        return "Codigo da venda: " + this.codigoVenda + "\n"
+                        + "Cliente: " + this.cliente + "\n"
+                        + "Corretor: " + this.corretor + "\n"
+                        + "Imovel: " + this.imovel + "\n";
+    }
 }

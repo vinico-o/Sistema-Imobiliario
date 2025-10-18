@@ -73,6 +73,13 @@ public class Imovel_CauanIgorVinicius implements Serializable {
                 "\nValor da venda: " + valorVenda +
                 "\nValor do aluguel: " + valorAluguel;
     }
+
+    public String listagemSimples()
+    {
+        return "\nCodigo do imovel: " + codigoImovel +
+                "\nEndereco: " + endereco +
+                "\nData de construcao: " + dataConstrucao ;
+    }
     
     //GETTERS E SETTERS
     public int getCodigoImovel() {

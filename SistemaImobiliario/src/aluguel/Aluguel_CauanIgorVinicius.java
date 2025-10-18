@@ -187,19 +187,26 @@ public class Aluguel_CauanIgorVinicius implements Serializable{
     
     public String toString()
     {
-       return "Aluguel{"+ "codigoAluguel=" + this.codigoAluguel + "\n"
-                        + "cliente=" + this.cliente + "\n"
-                        + "corretor=" + this.corretor + "\n"    
-                        + "imovel=" + this.imovel + "\n"
-                        + "dataAluguel=" + this.dataAluguel + "\n"
-                        + "dataDevolucao=" + this.dataDevolucao + "\n"
-                        + "dataPagamentoMensal=" + this.dataPagamentoMensal + "\n"
-                        + "valorTotalAluguel=" + this.valorTotalAluguel + "\n"
-                        + "formaPagamento=" + this.formaPagamento + "\n"
-                        + "segurosContratados=" + this.segurosContratados + "\n"
-                        + "finalizado=" + this.finalizado + "\n"
-                        + "pago=" + this.pago + "\n}";        
+       return "\nCodigo do aluguel: " + this.codigoAluguel + "\n"
+                        + "Cliente: " + this.cliente + "\n"
+                        + "Corretor: " + this.corretor + "\n"    
+                        + "Imovel: " + this.imovel + "\n"
+                        + "Data do aluguel: " + this.dataAluguel + "\n"
+                        + "Data de devolucao: " + this.dataDevolucao + "\n"
+                        + "Data de pagamento mensal: " + this.dataPagamentoMensal + "\n"
+                        + "Valor total do aluguel: " + this.valorTotalAluguel + "\n"
+                        + "Forma de pagamento: " + this.formaPagamento + "\n"
+                        + "Seguros contratados:" + this.segurosContratados + "\n"
+                        + "Esta finalizado? " + this.finalizado + "\n"
+                        + "Esta pago?" + this.pago + "\n";        
     }
     
-    
+ 
+    public String listagemSimples()
+    {
+        return "\nCodigo do aluguel: " + this.codigoAluguel + "\n"
+                        + "Cliente: " + this.cliente + "\n"
+                        + "Corretor: " + this.corretor + "\n"    
+                        + "Imovel: " + this.imovel + "\n";
+    }
 }

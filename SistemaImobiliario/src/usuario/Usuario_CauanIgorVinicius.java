@@ -113,6 +113,13 @@ public class Usuario_CauanIgorVinicius implements Serializable{
         this.email = email;
     }
 
+    public String listagemSimples()
+    {
+        return "\nCodigo do usuario: " + codigoUsuario +
+                "\nNome: " + nome + 
+                "\nCpf: " + cpf;
+    }
+
     @Override
     public String toString() {
         return "\nCodigo do usuario: " + codigoUsuario +

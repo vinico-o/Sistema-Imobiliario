@@ -60,7 +60,7 @@ public class sistema_CauanIgorVinicius{
 
                     Cliente_CauanIgorVinicius cliente = cadastrarCliente();
 
-                    System.out.println("Cliente cadastrado com sucesso");
+                    System.out.println("\nCliente cadastrado com sucesso\n");
                     imobiliaria.addCliente(cliente);
 
                     break;
@@ -68,6 +68,8 @@ public class sistema_CauanIgorVinicius{
                 case 2:
 
                     Corretor_CauanIgorVinicius corretor = cadastrarCorretor();
+
+                    System.out.println("\nCorretor cadastrado com sucesso\n");
 
                     imobiliaria.addCorretor(corretor);
 
@@ -77,6 +79,8 @@ public class sistema_CauanIgorVinicius{
 
                     CasaResidencial_CauanIgorVinicius casaResidencial = cadastrarCasaResidencial();
 
+                    System.out.println("\nCasa residencial cadastrada com sucesso\n");
+
                     imobiliaria.addImovel(casaResidencial);
 
                     break;
@@ -84,6 +88,8 @@ public class sistema_CauanIgorVinicius{
                 case 4:
 
                     Comercial_CauanIgorVinicius imovelComercial = cadastrarImovelComercial();
+
+                    System.out.println("\nImovel comercial cadastrado com sucesso\n");
 
                     imobiliaria.addImovel(imovelComercial);
 
@@ -93,12 +99,16 @@ public class sistema_CauanIgorVinicius{
 
                     PredioResidencial_CauanIgorVinicius predioResidencial = cadastrarPredioResidencial();
 
+                    System.out.println("\nPredio residencial cadastrado com sucesso\n");
+
                     imobiliaria.addImovel(predioResidencial);
 
                     break;
                 
                 case 6:
                     Seguro_CauanIgorVinicius seguro = cadastrarSeguro();
+
+                    System.out.println("\nSeguro cadastrado com sucesso\n");
 
                     imobiliaria.addSeguro(seguro);
 
@@ -109,6 +119,8 @@ public class sistema_CauanIgorVinicius{
 
                     Aluguel_CauanIgorVinicius aluguel = cadastrarAluguel(imobiliaria);
 
+                    System.out.println("\nAluguel cadastrado com sucesso\n");
+
                     imobiliaria.addAluguel(aluguel);
 
                     break;
@@ -116,6 +128,8 @@ public class sistema_CauanIgorVinicius{
                 case 8:
 
                     Venda_CauanIgorVinicius venda = cadastrarVenda(imobiliaria);
+
+                    System.out.println("\nVenda cadastrada com sucesso\n");
 
                     imobiliaria.addAVenda(venda);
 
@@ -162,7 +176,7 @@ public class sistema_CauanIgorVinicius{
 
             }
 
-        } while (opcao != 12);
+        } while (opcao != 13);
 
     }
 
@@ -180,7 +194,7 @@ public class sistema_CauanIgorVinicius{
 
         for (Venda_CauanIgorVinicius venda: imobiliaria.getVendas())
         {
-            if (venda.getFinalizada() == false)
+            if (venda.getCodigoVenda() == Integer.parseInt(codigoVenda)  && venda.getFinalizada() == false)
             {
                 encontrado = true;
                 venda.setFinalizada(true);
@@ -209,12 +223,12 @@ public class sistema_CauanIgorVinicius{
 
         for (Aluguel_CauanIgorVinicius aluguel: imobiliaria.getAlugueis())
         {
-            if (aluguel.getFinalizado() == false)
+            if (aluguel.getCodigoAluguel() == Integer.parseInt(codigoAluguel) && aluguel.getFinalizado() == false)
             {
                 encontrado = true;
 
                 aluguel.setFinalizado(true);
-                System.out.println("\nAluguel finalizado");
+                System.out.println("\nAluguel finalizado com sucesso\n");
             }
         }
 
@@ -228,7 +242,6 @@ public class sistema_CauanIgorVinicius{
         
         imobiliaria.listarImoveisAtrasoAluguel();
         Scanner sc = new Scanner(System.in);
-        sc.nextLine();
 
         System.out.println("Informe o codigo do aluguel: ");
         String codigoAluguel = sc.nextLine();
@@ -237,24 +250,24 @@ public class sistema_CauanIgorVinicius{
 
         for (Aluguel_CauanIgorVinicius aluguel: imobiliaria.getAlugueis())
         {
-            if (aluguel.getPago() == false)
+            if (aluguel.getCodigoAluguel() == Integer.parseInt(codigoAluguel) && aluguel.getPago() == false)
             {
                 encontrado = true;
                 aluguel.setPago(true);
-                System.out.println("\nAluguel pago");
+                System.out.println("\nAluguel pago com sucesso\n");
             }
         }
 
         if (encontrado == false)
         {
-            System.out.println("Aluguel nao encontrado");
+            System.out.println("\nAluguel nao encontrado\n");
         }
 
     }
 
     private static Venda_CauanIgorVinicius cadastrarVenda(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
-        imobiliaria.listarImoveisDisponiveisVenda();
+        imobiliaria.listarImoveis();
         imobiliaria.listarCorretoresRegistrados();
         imobiliaria.listarClientesRegistrados();
 
@@ -329,21 +342,21 @@ public class sistema_CauanIgorVinicius{
     private static Seguro_CauanIgorVinicius cadastrarSeguro() {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Codigo do seguro: ");
+        System.out.print("Codigo do seguro: ");
         int codigoSeguro = sc.nextInt();
 
         sc.nextLine();
 
-        System.out.println("Nome da seguradora: ");
+        System.out.print("Nome da seguradora: ");
         String nomeSeguradora = sc.nextLine();
 
-        System.out.println("Tipo do seguro: ");
+        System.out.print("Tipo do seguro: ");
         String tipo = sc.nextLine();
 
-        System.out.println("Descricao do seguro: ");
+        System.out.print("Descricao do seguro: ");
         String descricao = sc.nextLine();
 
-        System.out.println("Valor do seguro: ");
+        System.out.print("Valor do seguro: ");
         float valor = sc.nextFloat();
 
         Seguro_CauanIgorVinicius seguro = new Seguro_CauanIgorVinicius(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
@@ -364,80 +377,98 @@ public class sistema_CauanIgorVinicius{
             {
                 case 1:
                     imobiliaria.listarCasaResidencial();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 2:
                     imobiliaria.listarPredio();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 3:
                     imobiliaria.listarImovelComercial();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 4:
                     imobiliaria.listarImoveisParaLocacao();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 5:
                     imobiliaria.listarImoveisAlugados();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 6:
                     imobiliaria.listarImoveisDisponiveisVenda();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 7:
                     imobiliaria.listarImoveisVendidos();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 8:
                     imobiliaria.listarImoveisAtrasoAluguel();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 9:
                     System.out.println("Digite o nome do cliente para a busca:");
                     String c = leitor.nextLine();
                     imobiliaria.listarImoveisAlugadosPorCliente(c);
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 10:
                     System.out.println("Digite o nome do cliente para a busca: ");
                     String cliente = leitor.nextLine();
                     imobiliaria.listarImoveisCompradosPorCliente(cliente);
+                    operacao = Integer.parseInt(Listagem());
                     break;  
                     
                 case 11:
                     imobiliaria.listarCorretoresRegistrados();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 12:
                     imobiliaria.listarClientesRegistrados();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 13:
                     imobiliaria.listarClientesComAluguelAtrasado();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 14:
                     imobiliaria.listarAlugueisFinalizadosDevolvidos();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 15:
                     imobiliaria.listarAlugueisDentroDoPrazoLocacao();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 16:
                     imobiliaria.listarVendasRealizadas();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 17:
                     System.out.println("Digite o mês que deseja buscar:");
                     int month = Integer.parseInt(leitor.nextLine());
                     imobiliaria.listarVendasDoMesX(month);
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 18:
                     imobiliaria.listarSeguros();
+                    operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 19:
@@ -447,10 +478,13 @@ public class sistema_CauanIgorVinicius{
                     
                 default:
                     System.out.println("Opção invalidada! Digite novamente:");
+                    operacao = Integer.parseInt(Listagem());
                     break;
                 
                 
             }
+
+            
         }while(sair==1);
     }
     private static String Listagem()
@@ -486,9 +520,10 @@ public class sistema_CauanIgorVinicius{
 
     private static Aluguel_CauanIgorVinicius cadastrarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
-        imobiliaria.listarImoveisParaLocacao();
+        imobiliaria.listarImoveis();
         imobiliaria.listarCorretoresRegistrados();
         imobiliaria.listarClientesRegistrados();
+        imobiliaria.listarSeguros();
 
         Scanner sc = new Scanner(System.in);
 
@@ -580,7 +615,7 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo do imovel; ");
+        System.out.println("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
         sc.nextLine();
@@ -634,7 +669,7 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo do imovel; ");
+        System.out.println("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
         sc.nextLine();
@@ -780,7 +815,7 @@ public class sistema_CauanIgorVinicius{
         System.out.print("Cresci: ");
         String cresci = sc.nextLine();
 
-        System.out.println("Salario: ");
+        System.out.print("Salario: ");
         float salario = sc.nextFloat();
 
         if (salario < 0) {
@@ -791,10 +826,10 @@ public class sistema_CauanIgorVinicius{
 
         sc.nextLine();
 
-        System.out.println("Pis: ");
+        System.out.print("Pis: ");
         String pis = sc.nextLine();
 
-        System.out.println("Data de admissao: ");
+        System.out.print("Data de admissao (dd/MM/yyyy): ");
         String dataAdmStr = sc.nextLine();
         LocalDate dataAdm = LocalDate.parse(dataAdmStr, formatter);
 
@@ -809,40 +844,40 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo do imovel; ");
+        System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
         sc.nextLine();
 
-        System.out.println("Endereco: ");
+        System.out.print("Endereco: ");
         String endereco = sc.nextLine();
 
-        System.out.println("Data de construcao (dd/MM/yyyy): ");
+        System.out.print("Data de construcao (dd/MM/yyyy): ");
         String dataStr = sc.nextLine();
         LocalDate dataConstrucao = LocalDate.parse(dataStr, formatter);
 
-        System.out.println("Area total: ");
+        System.out.print("Area total: ");
         float areaTotal = sc.nextFloat();
 
-        System.out.println("Area construida: ");
+        System.out.print("Area construida: ");
         float areaConstruida = sc.nextFloat();
 
-        System.out.println("Quantidade de dormitorios: ");
+        System.out.print("Quantidade de dormitorios: ");
         int qntDormitorios = sc.nextInt();
 
-        System.out.println("Quantidade de banheiros: ");
+        System.out.print("Quantidade de banheiros: ");
         int qntBanheiros = sc.nextInt();
 
-        System.out.println("Quantidade de vagas na garagem: ");
+        System.out.print("Quantidade de vagas na garagem: ");
         int qntVagasGaragem = sc.nextInt();
 
-        System.out.println("Valor do IPTU: ");
+        System.out.print("Valor do IPTU: ");
         float valorIPTU = sc.nextFloat();
 
-        System.out.println("Valor de venda: ");
+        System.out.print("Valor de venda: ");
         float valorVenda = sc.nextFloat();
 
-        System.out.println("Valor do alguel: ");
+        System.out.print("Valor do alguel: ");
         float valorAluguel = sc.nextFloat();
 
         CasaResidencial_CauanIgorVinicius casaResidencial = new CasaResidencial_CauanIgorVinicius(codigoImovel,
@@ -862,13 +897,13 @@ public class sistema_CauanIgorVinicius{
             Scanner sc = new Scanner(System.in);
 
 
-            System.out.println("Nome do cartao: ");
+            System.out.print("Nome do cartao: ");
             String nome = sc.nextLine();
 
-            System.out.println("Bandeira do cartao: ");
+            System.out.print("Bandeira do cartao: ");
             String bandeira = sc.nextLine();
 
-            System.out.println("Numero do cartao: ");
+            System.out.print("Numero do cartao: ");
             String numero = sc.nextLine();
 
             d = new Cartao_CauanIgorVinicius(nome, bandeira, numero, "cartao");

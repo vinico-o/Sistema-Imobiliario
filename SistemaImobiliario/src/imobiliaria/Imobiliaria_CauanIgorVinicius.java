@@ -210,52 +210,60 @@ public class Imobiliaria_CauanIgorVinicius {
  
     public void listarTodosImoveis()
     {
-        System.out.println("TODOS OS IMOVEIS");
+        System.out.println("\nTODOS OS IMOVEIS");
         for (Imovel_CauanIgorVinicius i: imoveis)
         {
             System.out.println(i.toString());
         }
+
+        System.out.println("\n");
     }
 
     public void listarCasaResidencial()
     {
-        System.out.println("TODAS AS CASAS RESIDENCIAIS");
+        System.out.println("\nTODAS AS CASAS RESIDENCIAIS");
         for(Imovel_CauanIgorVinicius cr: imoveis)
         {
             if (cr instanceof CasaResidencial_CauanIgorVinicius)
             {
-                System.out.println(cr.toString());
+                System.out.println(cr.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarPredio()
     {
-        System.out.println("LISTANDO PREDIOS");
+        System.out.println("\nLISTANDO PREDIOS");
         for (Imovel_CauanIgorVinicius pr: imoveis)
         {
             if (pr instanceof PredioResidencial_CauanIgorVinicius)
             {
-                System.out.println(pr.toString());
+                System.out.println(pr.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarImovelComercial()
     {
-        System.out.println("LISTANDO IMOVEIS COMERCIAIS");
+        System.out.println("\nLISTANDO IMOVEIS COMERCIAIS");
         for (Imovel_CauanIgorVinicius cm: imoveis)
         {
             if (cm instanceof Comercial_CauanIgorVinicius)
             {
-                System.out.println(cm.toString());
+                System.out.println(cm.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarImoveisParaLocacao()
     {
-        System.out.println("LISTANDO IMOVEIS DISPONIVEIS PARA ALOCACAO");
+        System.out.println("\nLISTANDO IMOVEIS DISPONIVEIS PARA ALOCACAO");
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
             if (!(al.getFinalizado()))
@@ -263,21 +271,25 @@ public class Imobiliaria_CauanIgorVinicius {
                 System.out.println(al.getImovel().toString());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarImoveisAlugados()
     {
-        System.out.println("LISTANDO IMOVEIS ALUGADOS");
+        System.out.println("\nLISTANDO IMOVEIS ALUGADOS");
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
             System.out.println(al.getImovel().toString());
             
         }
+
+        System.out.println("\n");
     }
 
     public void listarClientesComAluguelAtrasado()
     {
-        System.out.println("LISTANDO CLIENTES COM ALUGUEL ATRASADO");
+        System.out.println("\nLISTANDO CLIENTES COM ALUGUEL ATRASADO");
         
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
@@ -285,12 +297,14 @@ public class Imobiliaria_CauanIgorVinicius {
             {
                 System.out.println(al.getCliente().toString());
             }
-        }    
+        }   
+        
+        System.out.println("\n");
     }
 
     public void listarAlugueisFinalizadosDevolvidos()
     {
-        System.out.println("LISTANDO ALUGUEIS FINALIZADOS E DEVOLVIDOS");
+        System.out.println("\nLISTANDO ALUGUEIS FINALIZADOS E DEVOLVIDOS");
 
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
@@ -299,11 +313,13 @@ public class Imobiliaria_CauanIgorVinicius {
                 System.out.println(al.toString());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarAlugueisDentroDoPrazoLocacao()
     {
-        System.out.println("LISTANDO ALUGUEIS DENTRO DO PRAZO DE LOCACAO");
+        System.out.println("\nLISTANDO ALUGUEIS DENTRO DO PRAZO DE LOCACAO");
 
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
@@ -312,24 +328,28 @@ public class Imobiliaria_CauanIgorVinicius {
                 System.out.println(al.toString());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarVendasRealizadas()
     {
-        System.out.println("LISTANDO VENDAS REALIZADAS");
+        System.out.println("\nLISTANDO VENDAS REALIZADAS");
 
         for (Venda_CauanIgorVinicius v: vendas)
         {
             if (v.getFinalizada())
             {
-                System.out.println(v.toString());
+                System.out.println(v.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
 
     public void listarVendasDoMesX(int mes)
     {
-        System.out.println("LISTANDO VENDAS DO MES " + mes);
+        System.out.println("\nLISTANDO VENDAS DO MES " + mes);
         int soma = 0;
         for (Venda_CauanIgorVinicius v: vendas)
         {
@@ -343,78 +363,112 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             System.out.println("Lucro gerado no mes: " + soma);
         }
+
+        System.out.println("\n");
     }
 
     public void listarSeguros()
     {
-        System.out.println("LISTANDO SEGUROS");
+        System.out.println("\nLISTANDO SEGUROS");
 
         for (Seguro_CauanIgorVinicius s: seguros)
         {
             System.out.println(s.toString());
         }
+
+        System.out.println("\n");
     }
     
     public void listarImoveisDisponiveisVenda (){
-        System.out.println("IMOVEIS DISPONIVEIS PARA VENDA");
+        System.out.println("\nIMOVEIS DISPONIVEIS PARA VENDA");
         for(Venda_CauanIgorVinicius i: vendas){
             if(!(i.getFinalizada())) {
                 System.out.println("" + i.getImovel().toString());
             }
         }
+
+        System.out.println("\n");
     }
     
     public void listarImoveisVendidos () {
         
-        System.out.println("IMOVEIS VENDIDOS");
+        System.out.println("\nIMOVEIS VENDIDOS");
         
         for(Venda_CauanIgorVinicius i: vendas){
             if(i.getFinalizada()){
-                System.out.println("" + i.toString());
+                System.out.println("" + i.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
     
     //TODO: REVER COMO VERIFICAR ATRASO NO PAGAMENTO
     public void listarImoveisAtrasoAluguel() {
-        System.out.println("IMOVEIS COM ATRASO NO PAGAMENTO DO ALUGUEL");
+        System.out.println("\nIMOVEIS COM ATRASO NO PAGAMENTO DO ALUGUEL\n");
         for(Aluguel_CauanIgorVinicius i: alugueis) {
             if(!(i.getPago())){
-                System.out.println("" + i.toString());
+                System.out.println("\n" + i.listagemSimples());
+
+                System.out.println("\n");
             }
         }
+
+        System.out.println("\n");
     }
     
     public void listarImoveisAlugadosPorCliente(String c){
-        System.out.println("IMOVEIS ALUGADOS PELO CLIENTE " + c);
+        System.out.println("I\nMOVEIS ALUGADOS PELO CLIENTE " + c);
         for(Aluguel_CauanIgorVinicius i: alugueis) {
             if(i.getCliente().getNome().equals(c)){
-                System.out.println("" + i.toString());
+                System.out.println("\n" + i.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
     
     public void listarImoveisCompradosPorCliente(String c){
-        System.out.println("IMOVEIS COMPRADOS PELO CLIENTE " + c);
+        System.out.println("\nIMOVEIS COMPRADOS PELO CLIENTE " + c);
         for(Venda_CauanIgorVinicius i: vendas) {
             if(i.getCliente().getNome().equals(c)){
-                System.out.println("" + i.toString());
+                System.out.println("\n" + i.listagemSimples());
             }
         }
+
+        System.out.println("\n");
     }
     
     public void listarCorretoresRegistrados(){
-        System.out.println("CORRETORES CADASTRADOS");
+        System.out.println("\nCORRETORES CADASTRADOS");
+
         for(Corretor_CauanIgorVinicius i: corretores){
-            System.out.println("" + i.toString());
+            System.out.println("\n" + i.listagemSimples());
         }
+
+        System.out.println("\n");
     }
     
     public void listarClientesRegistrados(){
-        System.out.println("CLIENTES CADASTRADOS");
+        System.out.println("\nCLIENTES CADASTRADOS");
         for(Cliente_CauanIgorVinicius i: clientes){
-            System.out.println("" + i.toString());
+            System.out.println("\n" + i.listagemSimples());
         }
+
+        System.out.println("\n");
     }
+
+    public void listarImoveis()
+    {
+        System.out.println("\nIMOVEIS DISPONVEIS");
+
+        for (Imovel_CauanIgorVinicius i: imoveis)
+        {
+            System.out.println("\n"+ i.listagemSimples());
+        }
+
+        System.out.println("\n");
+    }
+    
 
 }

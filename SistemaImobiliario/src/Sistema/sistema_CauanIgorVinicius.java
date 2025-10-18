@@ -46,16 +46,10 @@ public class sistema_CauanIgorVinicius{
         if (imobiliaria.getSeguros() == null) {
             imobiliaria.setSeguros(new ArrayList<>());
         }
-        for(Aluguel_CauanIgorVinicius al : imobiliaria.getAlugueis())
-        {
-            System.out.println(al.toString());
-        }
-        for(Venda_CauanIgorVinicius vn : imobiliaria.getVendas())
-        {
-            System.out.println(vn.toString());
-        }
 
-        System.out.println("\n\n|| SISTEMA IMOBILIARIO ||");
+        System.out.println("+---------------------------------------+");
+        System.out.println("|    BEM VINDO AO SISTEMA IMOBILIARIO   |");
+        System.out.println("+---------------------------------------+");
 
         int opcao;
 
@@ -64,29 +58,26 @@ public class sistema_CauanIgorVinicius{
 
             switch (opcao) {
                 case 1:
-
                     Cliente_CauanIgorVinicius cliente = cadastrarCliente();
 
-                    System.out.println("\nCliente cadastrado com sucesso\n");
+                    System.out.println("\nCliente cadastrado com sucesso!\n");
                     imobiliaria.addCliente(cliente);
 
                     break;
 
                 case 2:
-
                     Corretor_CauanIgorVinicius corretor = cadastrarCorretor();
 
-                    System.out.println("\nCorretor cadastrado com sucesso\n");
+                    System.out.println("\nCorretor cadastrado com sucesso!\n");
 
                     imobiliaria.addCorretor(corretor);
 
                     break;
 
                 case 3:
-
                     CasaResidencial_CauanIgorVinicius casaResidencial = cadastrarCasaResidencial();
 
-                    System.out.println("\nCasa residencial cadastrada com sucesso\n");
+                    System.out.println("\nCasa residencial cadastrada com sucesso!\n");
 
                     imobiliaria.addImovel(casaResidencial);
 
@@ -96,17 +87,16 @@ public class sistema_CauanIgorVinicius{
 
                     Comercial_CauanIgorVinicius imovelComercial = cadastrarImovelComercial();
 
-                    System.out.println("\nImovel comercial cadastrado com sucesso\n");
+                    System.out.println("\nImovel comercial cadastrado com sucesso!\n");
 
                     imobiliaria.addImovel(imovelComercial);
 
                     break;
 
                 case 5:
-
                     PredioResidencial_CauanIgorVinicius predioResidencial = cadastrarPredioResidencial();
 
-                    System.out.println("\nPredio residencial cadastrado com sucesso\n");
+                    System.out.println("\nPredio residencial cadastrado com sucesso!\n");
 
                     imobiliaria.addImovel(predioResidencial);
 
@@ -115,7 +105,7 @@ public class sistema_CauanIgorVinicius{
                 case 6:
                     Seguro_CauanIgorVinicius seguro = cadastrarSeguro();
 
-                    System.out.println("\nSeguro cadastrado com sucesso\n");
+                    System.out.println("\nSeguro cadastrado com sucesso!\n");
 
                     imobiliaria.addSeguro(seguro);
 
@@ -123,56 +113,49 @@ public class sistema_CauanIgorVinicius{
 
                 
                 case 7:
-
                     Aluguel_CauanIgorVinicius aluguel = cadastrarAluguel(imobiliaria);
 
-                    System.out.println("\nAluguel cadastrado com sucesso\n");
+                    System.out.println("\nAluguel cadastrado com sucesso!\n");
 
                     imobiliaria.addAluguel(aluguel);
 
                     break;
 
                 case 8:
-
                     Venda_CauanIgorVinicius venda = cadastrarVenda(imobiliaria);
 
-                    System.out.println("\nVenda cadastrada com sucesso\n");
+                    System.out.println("\nVenda cadastrada com sucesso!\n");
 
                     imobiliaria.addAVenda(venda);
-
 
                     break;
 
                 case 9:
-
                     pagarAluguel(imobiliaria);
-
 
                     break;
 
                 case 10:
-
                     finalizarAluguel(imobiliaria);
 
                     break;
 
                 case 11:
-
                     finalizarVenda(imobiliaria);
 
                     break;
 
                 case 12:
-            
                     int lista = Integer.parseInt(Listagem());
                     OpListagem(lista,imobiliaria);
 
                     break;
 
-                case 13:
+                case 0:
                     imobiliaria.salvarObjetos();
-                    System.out.println("\nFIM DO PROGRAMA");
-                    System.out.println("---------------------");
+                    System.out.println("+---------------------------------------+");
+                    System.out.println("|            FIM DO PROGRAMA            |");
+                    System.out.println("+---------------------------------------+");
 
                     break;
 
@@ -183,7 +166,7 @@ public class sistema_CauanIgorVinicius{
 
             }
 
-        } while (opcao != 13);
+        } while (opcao != 0);
 
     }
 
@@ -281,7 +264,6 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-
         System.out.println("Codigo da venda: ");
         int codigoVenda = sc.nextInt();
 
@@ -306,8 +288,6 @@ public class sistema_CauanIgorVinicius{
         int forma = sc.nextInt();
         Pagamento_CauanIgorVinicius pagamento = cadastrarPagamento(forma);
 
-        
-
         Corretor_CauanIgorVinicius corretorVenda = null;
         Cliente_CauanIgorVinicius clienteVenda = null;
         Imovel_CauanIgorVinicius imovelVenda = null;
@@ -329,8 +309,7 @@ public class sistema_CauanIgorVinicius{
                 imovelVenda = c;
             }
         }
-
-
+        
         if (clienteVenda != null && corretorVenda != null && imovelVenda != null)
         {
             Venda_CauanIgorVinicius venda = new Venda_CauanIgorVinicius(codigoVenda, clienteVenda, corretorVenda, imovelVenda, dataVenda, valorVenda,pagamento, false);
@@ -374,7 +353,6 @@ public class sistema_CauanIgorVinicius{
 
     }
 
-    
     private static void OpListagem(int operacao,Imobiliaria_CauanIgorVinicius imobiliaria)
     {
         int sair =1;
@@ -480,16 +458,19 @@ public class sistema_CauanIgorVinicius{
                     operacao = Integer.parseInt(Listagem());
                     break;
                     
-                case 19:
-                    System.out.println("Saindo da opção de relatórios!");
+                case 0:
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("|                    SAIANDO DA OPCAO DE RELATORIOS                       |");
+                    System.out.println("+-------------------------------------------------------------------------+");
                     sair = 0;
                     break;
                     
                 default:
-                    System.out.println("Opção invalidada! Digite novamente:");
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("|                   OPCAO INVALIDA! DIGITE NOVAMENTE                      |");
+                    System.out.println("+-------------------------------------------------------------------------+");
                     operacao = Integer.parseInt(Listagem());
                     break;
-                
                 
             }
 
@@ -498,27 +479,36 @@ public class sistema_CauanIgorVinicius{
     }
     private static String Listagem()
     {
-        System.out.println("Digite uma operação de Listagem");
-        System.out.println("1- Listar todos os imóveis de categoria Casa Residencial");
-        System.out.println("2- Listar todos os imóveis de categoria Prédio Residencial");
-        System.out.println("3- Listar todos os imóveis de categoria Comercial");    
-        System.out.println("4- Listar todos os Imóveis disponíveis para locação");
-        System.out.println("5- Listar todos os Imóveis alugados");
-        System.out.println("6- Listar todos os Imóveis disponíveis para vendas");
-        System.out.println("7- Listar todos os Imóveis vendidos");
-        System.out.println("8- Listar todos os Imóveis com atraso no pagamento do aluguel");
-        System.out.println("9- Listar todos os Imóveis já alugados por um Cliente em específico");
-        System.out.println("10- Listar todos os Imóveis já comprados por um Cliente em específico");
-        System.out.println("11- Listar todos os Corretores cadastrados");
-        System.out.println("12- Listar todos os Clientes cadastrados");
-        System.out.println("13- Listar Clientes com aluguéis em atraso");
-        System.out.println("14- Listar todos os Aluguéis finalizados, ou seja, que já concluíram contrato e foram devolvidos");
-        System.out.println("15- Listar todos os Aluguéis ainda dentro do prazo de locação");
-        System.out.println("16- Listar todas as Vendas realizadas");
-        System.out.println("17- Listar Vendas realizadas em um mês em específico e o total de lucro gerado no mês");
-        System.out.println("18- Listar todos os tipos de Seguros cadastrados");
-        System.out.println("19- Sair");
-     
+        System.out.println("+-------------------------------------------------------------------------+");
+        System.out.println("|IMOVEIS:                                                                 |");
+        System.out.println("|  01- Listar todos os imoveis de categoria Casa Residencial              |");
+        System.out.println("|  02- Listar todos os imoveis de categoria Pridio Residencial            |");
+        System.out.println("|  03- Listar todos os imoveis de categoria Comercial                     |");
+        System.out.println("|  04- Listar todos os Imoveis disponiveis para locacao                   |");
+        System.out.println("|  05- Listar todos os Imoveis alugados                                   |");
+        System.out.println("|  06- Listar todos os Imoveis disponiveis para vendas                    |");
+        System.out.println("|  07- Listar todos os Imoveis vendidos                                   |");
+        System.out.println("|  08- Listar todos os Imoveis com atraso no pagamento do aluguel         |");
+        System.out.println("|  09- Listar todos os Imoveis ja alugados por um Cliente em especifico   |");
+        System.out.println("|  10- Listar todos os Imoveis ja comprados por um Cliente em especifico  |");
+        System.out.println("|PESSOAS:                                                                 |");
+        System.out.println("|  11- Listar todos os Corretores cadastrados                             |");
+        System.out.println("|  12- Listar todos os Clientes cadastrados                               |");
+        System.out.println("|  13- Listar Clientes com alugueis em atraso                             |");
+        System.out.println("|CONTRATOS:                                                               |");
+        System.out.println("|  14- Listar todos os Alugueis finalizados                               |");
+        System.out.println("|  15- Listar todos os Alugueis ainda dentro do prazo de locacao          |");
+        System.out.println("|  16- Listar todas as Vendas realizadas                                  |");
+        System.out.println("|  17- Listar Vendas realizadas em um mes em especifico e total de lucro  |");
+        System.out.println("|SEGUROS:                                                                 |");
+        System.out.println("|  18- Listar todos os tipos de Seguros cadastrados                       |");
+        System.out.println("|SAIR:                                                                    |");
+        System.out.println("|  00- Sair                                                               |");
+        System.out.println("+-------------------------------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------------+");
+        System.out.println("|                       DIGITE A OPCAO DESEJADA                           |");
+        System.out.println("+-------------------------------------------------------------------------+");
+    
         Scanner leitor = new Scanner(System.in);
 
         String opcao = leitor.nextLine();
@@ -750,19 +740,27 @@ public class sistema_CauanIgorVinicius{
     }
 
     private static String mensagemMenu() {
-        System.out.println("1- Cadastrar cliente");
-        System.out.println("2- Cadastrar corretor");
-        System.out.println("3- Cadastrar casa residencial");
-        System.out.println("4- Cadastrar imovel comercial");
-        System.out.println("5- Cadastrar predio residencial");
-        System.out.println("6- Cadastrar seguro");
-        System.out.println("7- Alugar imovel");
-        System.out.println("8- Vender imovel");
-        System.out.println("9- Pagar aluguel");
-        System.out.println("10- Finalizar aluguel");
-        System.out.println("11- Finalizar venda");
-        System.out.println("12- Relatorio");
-        System.out.println("13- Sair");
+        System.out.println("+---------------------------------------+");
+        System.out.println("|CADASTROS:                             |");
+        System.out.println("|  01- Cadastrar cliente                |");
+        System.out.println("|  02- Cadastrar corretor               |");
+        System.out.println("|  03- Cadastrar casa residencial       |");
+        System.out.println("|  04- Cadastrar imovel comercial       |");
+        System.out.println("|  05- Cadastrar predio residencial     |");
+        System.out.println("|  06- Cadastrar seguro                 |");
+        System.out.println("|OPERACOES:                             |");
+        System.out.println("|  07- Alugar imovel                    |");
+        System.out.println("|  08- Vender imovel                    |");
+        System.out.println("|  09- Pagar aluguel                    |");
+        System.out.println("|  10- Finalizar aluguel                |");
+        System.out.println("|  11- Finalizar venda                  |");
+        System.out.println("|SISTEMA:                               |");
+        System.out.println("|  12- Relatorio                        |");
+        System.out.println("|  00- Sair                             |");
+        System.out.println("+---------------------------------------+");
+        System.out.println("+---------------------------------------+");
+        System.out.println("|        DIGITE A OPCAO DESEJADA        |");
+        System.out.println("+---------------------------------------+");
 
         Scanner leitor = new Scanner(System.in);
 

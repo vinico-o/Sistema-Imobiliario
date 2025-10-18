@@ -26,11 +26,6 @@ public class Comercial_CauanIgorVinicius extends Imovel_CauanIgorVinicius {
     }
     
     //METODOS
-    @Override
-    public void imprimir() {
-        super.imprimir();
-        System.out.println("Taxa de Imposto Federal: " + taxaImpostoFederal);
-    }
     
     @Override
     public float getValorAluguel() {

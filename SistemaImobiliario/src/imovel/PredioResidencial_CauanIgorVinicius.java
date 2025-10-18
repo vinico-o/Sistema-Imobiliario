@@ -29,12 +29,6 @@ public class PredioResidencial_CauanIgorVinicius extends Imovel_CauanIgorViniciu
     
     
     //METODOS
-    @Override
-    public void imprimir() {
-        super.imprimir();
-        System.out.println("Andar: " + andar);
-        System.out.println("valor de Condominio: " + valorCondominio);
-    }
     
     @Override
     public float getValorAluguel() {

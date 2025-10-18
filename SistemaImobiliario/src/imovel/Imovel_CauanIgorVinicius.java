@@ -46,31 +46,7 @@ public class Imovel_CauanIgorVinicius implements Serializable {
         this.tipo = tipo;
     }
     
-    public String getTipo()
-    {
-        return tipo;
-    }
-
-    public void setTipo(String tipo)
-    {
-        this.tipo = tipo;
-    }
-    
     //METODOS
-    public void imprimir(){
-        System.out.println("DADOS DO IMOVEL");
-        System.out.println("Código do imóvel: " + codigoImovel);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("Data de construção: " + dataConstrucao);
-        System.out.println("Área total: " + areaTotal + " m²");
-        System.out.println("Área construída: " + areaConstruida + " m²");
-        System.out.println("Dormitórios: " + qtdDormitorios);
-        System.out.println("Banheiros: " + qtdBanheiros);
-        System.out.println("Vagas de garagem: " + qtdsVagasGaragem);
-        System.out.println("Valor do IPTU: R$ " + valorIPTU);
-        System.out.println("Valor de venda: R$ " + valorVenda);
-        System.out.println("Valor de aluguel: R$ " + valorAluguel);
-    }
 
     @Override
     public String toString() {
@@ -91,7 +67,10 @@ public class Imovel_CauanIgorVinicius implements Serializable {
     {
         return "\nCodigo do imovel: " + codigoImovel +
                 "\nEndereco: " + endereco +
-                "\nData de construcao: " + dataConstrucao ;
+                "\nData de construcao: " + dataConstrucao +
+                "\nTipo: " + tipo +
+                "\nEsta Disponivel? " + isDisponivel ;
+                  
     }
     
     //GETTERS E SETTERS
@@ -189,6 +168,16 @@ public class Imovel_CauanIgorVinicius implements Serializable {
 
     public void setValorAluguel(float valorAluguel) {
         this.valorAluguel = valorAluguel;
+    }
+    
+    public String getTipo()
+    {
+        return tipo;
+    }
+
+    public void setTipo(String tipo)
+    {
+        this.tipo = tipo;
     }
     
 }

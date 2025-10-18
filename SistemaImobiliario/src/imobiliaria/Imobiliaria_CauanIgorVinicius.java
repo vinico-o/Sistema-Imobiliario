@@ -266,7 +266,7 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\nLISTANDO IMOVEIS DISPONIVEIS PARA ALOCACAO");
         for (Imovel_CauanIgorVinicius i: imoveis)
         {
-            if (i.getIsDisponivel() == true && i.getTipo() == "aluguel")
+            if (i.getIsDisponivel() == true && i.getTipo().equals("aluguel"))
             {
                 System.out.println("\n" + i.toString());
             }

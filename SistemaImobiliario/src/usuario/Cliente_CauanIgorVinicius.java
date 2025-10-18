@@ -33,7 +33,8 @@ public class Cliente_CauanIgorVinicius extends Usuario_CauanIgorVinicius{
 
     @Override
     public String toString() {
-        return "Cliente{" + "dataCadastro=" + dataCadastro + '}';
+        return super.toString() + 
+              "\nData de cadastro: " + dataCadastro;
     }
     
     

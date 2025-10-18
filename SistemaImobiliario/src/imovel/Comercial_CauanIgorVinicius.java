@@ -39,7 +39,8 @@ public class Comercial_CauanIgorVinicius extends Imovel_CauanIgorVinicius {
 
     @Override
     public String toString() {
-        return "Comercial_CauanIgorVinicius{" + "taxaImpostoFederal=" + taxaImpostoFederal + '}';
+        return super.toString() + 
+                "\nTaxa de imposto federal: " + taxaImpostoFederal;
     }
     
     //GETTERS E SETTERS

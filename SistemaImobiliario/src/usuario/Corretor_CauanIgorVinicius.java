@@ -63,7 +63,11 @@ public class Corretor_CauanIgorVinicius extends Usuario_CauanIgorVinicius{
 
     @Override
     public String toString() {
-        return "Corretor{" + "creci=" + creci + ", salario=" + salario + ", pis=" + pis + ", dataAdmissao=" + dataAdmissao + '}';
+        return  super.toString() + 
+                "\nCreci: " + creci +
+                "\nSalario: " + salario +
+                "\nPis: " + pis +
+                "Data de admissao: " + dataAdmissao;
     }
     
     

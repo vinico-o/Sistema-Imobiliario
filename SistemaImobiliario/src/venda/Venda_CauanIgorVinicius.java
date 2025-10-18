@@ -107,13 +107,13 @@ public class Venda_CauanIgorVinicius implements Serializable{
     @Override
     public String toString()
     {
-        return "Venda{" + "codigoVenda=" + this.codigoVenda + "\n"
-                        + "cliente=" + this.cliente + "\n"
-                        + "corretor=" + this.corretor + "\n"
-                        + "imovel=" + this.imovel + "\n"
-                        + "dataVenda=" + this.dataVenda + "\n"
-                        + "formaPagamento=" + this.formaPagamento + "\n"
-                        + "finalizada=" + this.finalizada + "}";
+        return "Codigo da venda: " + this.codigoVenda + "\n"
+                        + "Cliente: " + this.cliente + "\n"
+                        + "Corretor: " + this.corretor + "\n"
+                        + "Imovel: " + this.imovel + "\n"
+                        + "Data da venda: " + this.dataVenda + "\n"
+                        + "Forma de pagamento: " + this.formaPagamento + "\n"
+                        + "Esta finalizada? " + this.finalizada ;
     }                   
     
 }

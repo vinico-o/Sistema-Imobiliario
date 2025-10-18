@@ -115,7 +115,15 @@ public class Usuario_CauanIgorVinicius implements Serializable{
 
     @Override
     public String toString() {
-        return "Usuario{" + "codigoUsuario=" + codigoUsuario + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", cep=" + cep + ", telefone=" + telefone + ", email=" + email + '}';
+        return "\nCodigo do usuario: " + codigoUsuario +
+                "\nNome: " + nome + 
+                "\nCpf: " + cpf + 
+                "\nRg: " + rg +
+                "\nData de nascimento: " + dataNascimento + 
+                "\nEndereco: " + endereco +
+                "\nCep: " + cep +
+                "\nTelefone: " + telefone + 
+                "\nEmail: " + email;
     }
     
     

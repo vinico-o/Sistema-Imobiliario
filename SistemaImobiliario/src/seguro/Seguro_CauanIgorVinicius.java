@@ -39,6 +39,16 @@ public class Seguro_CauanIgorVinicius implements Serializable{
         System.out.println("Descrição: " + descricao);
         System.out.println("Valor: R$ " + valor);
     }
+
+    @Override
+    public String toString()
+    {
+        return "Codigo do seguro: " + codigoSEguro
+                + "\nNome da seguradora: " + nomeSeguradora 
+                + "\nTipo do seguro: " + tipo
+                + "\nDescricao do seguro: " + descricao
+                + "\nValor do seguro: " + valor;
+    }
     
     //GETTERS E SETTERS
     public int getCodigoSEguro() {

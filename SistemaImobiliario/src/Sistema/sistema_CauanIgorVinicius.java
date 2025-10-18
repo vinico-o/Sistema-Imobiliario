@@ -59,6 +59,7 @@ public class sistema_CauanIgorVinicius{
 
                     Cliente_CauanIgorVinicius cliente = cadastrarCliente();
 
+                    System.out.println("Cliente cadastrado com sucesso");
                     imobiliaria.addCliente(cliente);
 
                     break;
@@ -398,6 +399,7 @@ public class sistema_CauanIgorVinicius{
                     break;
                     
                 case 12:
+                    imobiliaria.listarClientesRegistrados();
                     break;
                     
                 case 13:

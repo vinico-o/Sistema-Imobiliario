@@ -61,7 +61,17 @@ public class Imovel_CauanIgorVinicius implements Serializable {
 
     @Override
     public String toString() {
-        return "Imovel_CauanIgorVinicius{" + "codigoImovel=" + codigoImovel + ", endereco=" + endereco + ", dataConstrucao=" + dataConstrucao + ", areaTotal=" + areaTotal + ", areaConstruida=" + areaConstruida + ", qtdDormitorios=" + qtdDormitorios + ", qtdBanheiros=" + qtdBanheiros + ", qtdsVagasGaragem=" + qtdsVagasGaragem + ", valorIPTU=" + valorIPTU + ", valorVenda=" + valorVenda + ", valorAluguel=" + valorAluguel + '}';
+        return "\nCodigo do imovel: " + codigoImovel +
+                "\nEndereco: " + endereco +
+                "\nData de construcao: " + dataConstrucao +
+                "\nArea total: " + areaTotal +
+                "\nArea construida: " + areaConstruida +
+                "\nQuantidade de dormitorios: " + qtdDormitorios +
+                "\nQuantidade de banheiros: " + qtdBanheiros +
+                "\nQuantidade de vagas na garagem: " + qtdsVagasGaragem +
+                "\nValor do IPTU: " + valorIPTU +
+                "\nValor da venda: " + valorVenda +
+                "\nValor do aluguel: " + valorAluguel;
     }
     
     //GETTERS E SETTERS

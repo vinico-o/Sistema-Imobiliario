@@ -44,6 +44,13 @@ public class Imobiliaria_CauanIgorVinicius {
         this.nome = "imobiliaria";
         this.endereco = "endereço";
         this.configuracoes = new Configuracao_CauanIgorVinicius();
+        this.alugueis = new ArrayList<>();
+        this.vendas = new ArrayList<>();
+        this.alugueis = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.corretores = new ArrayList<>();
+        this.seguros = new ArrayList<>();
+
         this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/alugueis.dat");
         this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/vendas.dat");
         this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/imoveis.dat");
@@ -56,6 +63,13 @@ public class Imobiliaria_CauanIgorVinicius {
         this.nome = nome;
         this.endereco = endereco;
         this.configuracoes = new Configuracao_CauanIgorVinicius();
+        this.alugueis = new ArrayList<>();
+        this.vendas = new ArrayList<>();
+        this.alugueis = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.corretores = new ArrayList<>();
+        this.seguros = new ArrayList<>();
+
         this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/alugueis.dat");
         this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/vendas.dat");
         this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/imoveis.dat");
@@ -398,7 +412,7 @@ public class Imobiliaria_CauanIgorVinicius {
     
     public void listarClientesRegistrados(){
         System.out.println("CLIENTES CADASTRADOS");
-        for(Corretor_CauanIgorVinicius i: corretores){
+        for(Cliente_CauanIgorVinicius i: clientes){
             System.out.println("" + i.toString());
         }
     }

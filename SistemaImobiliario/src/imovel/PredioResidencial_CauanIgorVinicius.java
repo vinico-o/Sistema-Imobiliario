@@ -43,7 +43,9 @@ public class PredioResidencial_CauanIgorVinicius extends Imovel_CauanIgorViniciu
 
     @Override
     public String toString() {
-        return "PredioResidencial_CauanIgorVinicius{" + "andar=" + andar + ", valorCondominio=" + valorCondominio + '}';
+        return super.toString() + 
+                "\nAndar: " + andar +
+                "\nValor do condominio: " + valorCondominio;
     }
     
     //GETTERS E SETTERS

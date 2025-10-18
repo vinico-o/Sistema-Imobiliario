@@ -407,7 +407,6 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\n");
     }
     
-    //TODO: REVER COMO VERIFICAR ATRASO NO PAGAMENTO
     public void listarImoveisAtrasoAluguel() {
         System.out.println("\nIMOVEIS COM ATRASO NO PAGAMENTO DO ALUGUEL\n");
         for(Aluguel_CauanIgorVinicius i: alugueis) {

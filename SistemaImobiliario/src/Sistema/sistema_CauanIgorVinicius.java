@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import aluguel.Aluguel_CauanIgorVinicius;
-import venda.Venda_CauanIgorVinicius;
 
 public class sistema_CauanIgorVinicius{
 
@@ -565,7 +564,7 @@ public class sistema_CauanIgorVinicius{
         }
 
         for (Seguro_CauanIgorVinicius c : imobiliaria.getSeguros()) {
-            if (c.getCodigoSEguro() == codigoImovel) {
+            if (c.getCodigoSEguro() == codigoSeguro) {
                 seguroAluguel.add(c);
             }
         }
@@ -589,9 +588,6 @@ public class sistema_CauanIgorVinicius{
             System.out.println("Informe a data de pagamento mensal (DD/MM/YYYY): ");
             dataStr = sc.nextLine();
             LocalDate dataPagamentoMensal = LocalDate.parse(dataStr, formatter);
-
-            System.out.println("Valor total do aluguel: ");
-            float valorTotalAluguel = sc.nextFloat();
 
             System.out.println("Qual a forma de pagamento? (0 - dinhero // 1- cartao)");
             int escolha = sc.nextInt();

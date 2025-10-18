@@ -46,6 +46,14 @@ public class sistema_CauanIgorVinicius{
         if (imobiliaria.getSeguros() == null) {
             imobiliaria.setSeguros(new ArrayList<>());
         }
+        for(Aluguel_CauanIgorVinicius al : imobiliaria.getAlugueis())
+        {
+            System.out.println(al.toString());
+        }
+        for(Venda_CauanIgorVinicius vn : imobiliaria.getVendas())
+        {
+            System.out.println(vn.toString());
+        }
 
         System.out.println("\n\n|| SISTEMA IMOBILIARIO ||");
 
@@ -294,7 +302,7 @@ public class sistema_CauanIgorVinicius{
         System.out.println("Valor total da venda: ");
         float valorVenda = sc.nextFloat();
 
-        System.out.println("Forma de pagamento: ");
+        System.out.println("Forma de pagamento: (0 - dinhero // 1- cartao)");
         int forma = sc.nextInt();
         Pagamento_CauanIgorVinicius pagamento = cadastrarPagamento(forma);
 

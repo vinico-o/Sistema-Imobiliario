@@ -4,11 +4,13 @@
  */
 package pagamento;
 
+import java.io.Serializable;
+
 /**
  *
  * @author manoe
  */
-public abstract class Pagamento_CauanIgorVinicius {
+public abstract class Pagamento_CauanIgorVinicius implements Serializable{
     private String tipoPagamento;
 
     public Pagamento_CauanIgorVinicius() {}

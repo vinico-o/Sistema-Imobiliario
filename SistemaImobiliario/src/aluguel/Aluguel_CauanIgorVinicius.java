@@ -207,8 +207,8 @@ public class Aluguel_CauanIgorVinicius implements Serializable{
     public String listagemSimples()
     {
         return "\nCodigo do aluguel: " + this.codigoAluguel + "\n"
-                        + "Cliente: " + this.cliente + "\n"
-                        + "Corretor: " + this.corretor + "\n"    
-                        + "Imovel: " + this.imovel + "\n";
+                        + "Cliente: " + this.cliente.getNome() + "\n"
+                        + "Corretor: " + this.corretor.getNome() + "\n"    
+                        + "Imovel: " + this.imovel.listagemSimples() + "\n";
     }
 }

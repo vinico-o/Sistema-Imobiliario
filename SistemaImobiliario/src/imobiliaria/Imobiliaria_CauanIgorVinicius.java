@@ -216,7 +216,7 @@ public class Imobiliaria_CauanIgorVinicius {
             System.out.println("\n" + i.toString());
         }
 
-        System.out.println("\n");
+        System.out.println("");
     }
 
     public void listarCasaResidencial()
@@ -226,7 +226,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (cr instanceof CasaResidencial_CauanIgorVinicius)
             {
-                System.out.println("\n" + cr.listagemSimples());
+                System.out.println("" + cr.listagemSimples());
             }
         }
 
@@ -240,7 +240,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (pr instanceof PredioResidencial_CauanIgorVinicius)
             {
-                System.out.println("\n" + pr.listagemSimples());
+                System.out.println("" + pr.listagemSimples());
             }
         }
 
@@ -254,7 +254,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (cm instanceof Comercial_CauanIgorVinicius)
             {
-                System.out.println("\n" + cm.listagemSimples());
+                System.out.println("" + cm.listagemSimples());
             }
         }
 
@@ -268,7 +268,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (i.getIsDisponivel() == true && i.getTipo().equals("aluguel"))
             {
-                System.out.println("\n" + i.toString());
+                System.out.println("" + i.toString());
             }
         }
 
@@ -280,7 +280,7 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\nLISTANDO IMOVEIS ALUGADOS");
         for (Aluguel_CauanIgorVinicius al: alugueis)
         {
-            System.out.println("\n" + al.getImovel().toString());
+            System.out.println("" + al.getImovel().toString());
             
         }
 
@@ -295,7 +295,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (!al.getPago() && al.getDataPagamentoMensal().getDayOfMonth() < LocalDate.now().getDayOfMonth())
             {
-                System.out.println("\n" + al.getCliente().toString());
+                System.out.println("" + al.getCliente().toString());
             }
         }   
         
@@ -310,7 +310,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (al.getFinalizado() && al.getDataDevolucao().isBefore(LocalDate.now()))
             {
-                System.out.println("\n" + al.toString());
+                System.out.println("" + al.toString());
             }
         }
 
@@ -325,7 +325,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if(al.getDataAluguel().isAfter(LocalDateTime.now().toLocalDate()))
             {
-                System.out.println("\n" + al.toString());
+                System.out.println("" + al.toString());
             }
         }
 
@@ -340,7 +340,7 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (v.getFinalizada() == true)
             {
-                System.out.println("\n" + v.listagemSimples());
+                System.out.println("" + v.listagemSimples());
             }
         }
 
@@ -373,7 +373,7 @@ public class Imobiliaria_CauanIgorVinicius {
 
         for (Seguro_CauanIgorVinicius s: seguros)
         {
-            System.out.println("\n" + s.toString());
+            System.out.println("" + s.toString());
         }
 
         System.out.println("\n");
@@ -385,9 +385,9 @@ public class Imobiliaria_CauanIgorVinicius {
         
         for(Imovel_CauanIgorVinicius i: imoveis)
         {
-            if(i.getIsDisponivel() == true && i.getTipo() == "venda")
+            if(i.getIsDisponivel() == true && i.getTipo().equals("venda"))
             {
-                System.out.println("\n" + i.toString());
+                System.out.println("" + i.toString());
             }
         }
 
@@ -400,7 +400,7 @@ public class Imobiliaria_CauanIgorVinicius {
         
         for(Venda_CauanIgorVinicius i: vendas){
             if(i.getFinalizada()){
-                System.out.println("\n" + i.listagemSimples());
+                System.out.println("" + i.listagemSimples());
             }
         }
 
@@ -411,7 +411,7 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\nIMOVEIS COM ATRASO NO PAGAMENTO DO ALUGUEL\n");
         for(Aluguel_CauanIgorVinicius i: alugueis) {
             if(!(i.getPago())){
-                System.out.println("\n" + i.listagemSimples());
+                System.out.println("" + i.listagemSimples());
 
                 System.out.println("\n");
             }
@@ -421,10 +421,10 @@ public class Imobiliaria_CauanIgorVinicius {
     }
     
     public void listarImoveisAlugadosPorCliente(String c){
-        System.out.println("I\nMOVEIS ALUGADOS PELO CLIENTE " + c);
+        System.out.println("\nIMOVEIS ALUGADOS PELO CLIENTE " + c);
         for(Aluguel_CauanIgorVinicius i: alugueis) {
             if(i.getCliente().getNome().equals(c)){
-                System.out.println("\n" + i.listagemSimples());
+                System.out.println("" + i.listagemSimples());
             }
         }
 
@@ -435,7 +435,7 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\nIMOVEIS COMPRADOS PELO CLIENTE " + c);
         for(Venda_CauanIgorVinicius i: vendas) {
             if(i.getCliente().getNome().equals(c)){
-                System.out.println("\n" + i.listagemSimples());
+                System.out.println("" + i.listagemSimples());
             }
         }
 
@@ -446,7 +446,7 @@ public class Imobiliaria_CauanIgorVinicius {
         System.out.println("\nCORRETORES CADASTRADOS");
 
         for(Corretor_CauanIgorVinicius i: corretores){
-            System.out.println("\n" + i.listagemSimples());
+            System.out.println("" + i.listagemSimples());
         }
 
         System.out.println("\n");
@@ -455,7 +455,7 @@ public class Imobiliaria_CauanIgorVinicius {
     public void listarClientesRegistrados(){
         System.out.println("\nCLIENTES CADASTRADOS");
         for(Cliente_CauanIgorVinicius i: clientes){
-            System.out.println("\n" + i.listagemSimples());
+            System.out.println("" + i.listagemSimples());
         }
 
         System.out.println("\n");
@@ -469,12 +469,11 @@ public class Imobiliaria_CauanIgorVinicius {
         {
             if (i.getIsDisponivel() == true)
             {
-                System.out.println("\n"+ i.listagemSimples());
+                System.out.println(""+ i.listagemSimples());
             }
         }
 
         System.out.println("\n");
     }
     
-
 }

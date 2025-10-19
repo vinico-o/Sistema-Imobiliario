@@ -175,9 +175,8 @@ public class sistema_CauanIgorVinicius{
         imobiliaria.listarImoveisDisponiveisVenda();
 
         Scanner sc = new Scanner(System.in);
-        sc.nextLine();
 
-        System.out.println("Informe o codigo da venda: ");
+        System.out.print("Informe o codigo da venda: ");
         String codigoVenda = sc.nextLine();
 
         boolean encontrado = false;
@@ -206,7 +205,7 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         sc.nextLine();
 
-        System.out.println("Informe o codigo do aluguel: ");
+        System.out.print("Informe o codigo do aluguel: ");
         String codigoAluguel = sc.nextLine();
 
         boolean encontrado = false;
@@ -233,7 +232,7 @@ public class sistema_CauanIgorVinicius{
         imobiliaria.listarImoveisAtrasoAluguel();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Informe o codigo do aluguel: ");
+        System.out.print("Informe o codigo do aluguel: ");
         String codigoAluguel = sc.nextLine();
 
         boolean encontrado = false;
@@ -257,34 +256,34 @@ public class sistema_CauanIgorVinicius{
 
     private static Venda_CauanIgorVinicius cadastrarVenda(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
-        imobiliaria.listarImoveis();
+        imobiliaria.listarImoveisDisponiveisVenda();
         imobiliaria.listarCorretoresRegistrados();
         imobiliaria.listarClientesRegistrados();
 
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo da venda: ");
+        System.out.print("Codigo da venda: ");
         int codigoVenda = sc.nextInt();
 
-        System.out.println("Codigo do cliente: ");
+        System.out.print("Codigo do cliente: ");
         int codigoCliente = sc.nextInt();
 
-        System.out.println("Codigo do corretor: ");
+        System.out.print("Codigo do corretor: ");
         int codigoCorretor = sc.nextInt();
 
-        System.out.println("Codigo do imovel: ");
+        System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
         sc.nextLine();
-        System.out.println("Data da venda (dd/MM/yyyy): ");
+        System.out.print("Data da venda (dd/MM/yyyy): ");
         String dataStr = sc.nextLine();
         LocalDate dataVenda = LocalDate.parse(dataStr, formatter);
 
-        System.out.println("Valor total da venda: ");
+        System.out.print("Valor total da venda: ");
         float valorVenda = sc.nextFloat();
 
-        System.out.println("Forma de pagamento: (0 - dinhero // 1- cartao)");
+        System.out.print("Forma de pagamento: (0 - dinhero // 1- cartao) ");
         int forma = sc.nextInt();
         Pagamento_CauanIgorVinicius pagamento = cadastrarPagamento(forma);
 
@@ -403,14 +402,16 @@ public class sistema_CauanIgorVinicius{
                     break;
                     
                 case 9:
-                    System.out.println("Digite o nome do cliente para a busca:");
+                    imobiliaria.listarClientesRegistrados();
+                    System.out.print("Digite o nome do cliente para a busca: ");
                     String c = leitor.nextLine();
                     imobiliaria.listarImoveisAlugadosPorCliente(c);
                     operacao = Integer.parseInt(Listagem());
                     break;
                     
                 case 10:
-                    System.out.println("Digite o nome do cliente para a busca: ");
+                    imobiliaria.listarClientesRegistrados();
+                    System.out.print("Digite o nome do cliente para a busca: ");
                     String cliente = leitor.nextLine();
                     imobiliaria.listarImoveisCompradosPorCliente(cliente);
                     operacao = Integer.parseInt(Listagem());
@@ -519,23 +520,23 @@ public class sistema_CauanIgorVinicius{
 
     private static Aluguel_CauanIgorVinicius cadastrarAluguel(Imobiliaria_CauanIgorVinicius imobiliaria) {
         
-        imobiliaria.listarImoveis();
+        imobiliaria.listarImoveisParaLocacao();
         imobiliaria.listarCorretoresRegistrados();
         imobiliaria.listarClientesRegistrados();
         imobiliaria.listarSeguros();
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Informe o codigo do cliente: ");
+        System.out.print("Informe o codigo do cliente: ");
         int codigoCliente = sc.nextInt();
 
-        System.out.println("Informe o codigo do corretor: ");
+        System.out.print("Informe o codigo do corretor: ");
         int codigoCorretor = sc.nextInt();
 
-        System.out.println("Informe o codigo do imovel: ");
+        System.out.print("Informe o codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
-        System.out.println("Informe o codigo do seguro: ");
+        System.out.print("Informe o codigo do seguro: ");
         int codigoSeguro = sc.nextInt();
 
         Corretor_CauanIgorVinicius corretorAluguel = null;
@@ -568,26 +569,26 @@ public class sistema_CauanIgorVinicius{
         }
 
         if (imovelAluguel != null && clienteAluguel != null && corretorAluguel != null && seguroAluguel != null) {
-            System.out.println("Informe o codigo do aluguel: ");
+            System.out.print("Informe o codigo do aluguel: ");
             int codigoAluguel = sc.nextInt();
 
             sc.nextLine();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-            System.out.println("Informe a data do aluguel (DD/MM/YYYY): ");
+            System.out.print("Informe a data do aluguel (DD/MM/YYYY): ");
             String dataStr = sc.nextLine();
             LocalDate dataAlguel = LocalDate.parse(dataStr, formatter);
 
-            System.out.println("Informe a data do devolucao (DD/MM/YYYY): ");
+            System.out.print("Informe a data do devolucao (DD/MM/YYYY): ");
             dataStr = sc.nextLine();
             LocalDate dataDevolucao = LocalDate.parse(dataStr, formatter);
 
-            System.out.println("Informe a data de pagamento mensal (DD/MM/YYYY): ");
+            System.out.print("Informe a data de pagamento mensal (DD/MM/YYYY): ");
             dataStr = sc.nextLine();
             LocalDate dataPagamentoMensal = LocalDate.parse(dataStr, formatter);
 
-            System.out.println("Qual a forma de pagamento? (0 - dinhero // 1- cartao)");
+            System.out.print("Qual a forma de pagamento? (0 - dinhero // 1- cartao)");
             int escolha = sc.nextInt();
 
             sc.nextLine();
@@ -613,49 +614,49 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo do imovel: ");
+        System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
-        System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
+        System.out.print("Tipo do imovel (0 - aluguel | 1 - venda): ");
         int tipo = sc.nextInt();
 
         sc.nextLine();
 
-        System.out.println("Endereco: ");
+        System.out.print("Endereco: ");
         String endereco = sc.nextLine();
 
-        System.out.println("Data de construcao (dd/MM/yyyy): ");
+        System.out.print("Data de construcao (dd/MM/yyyy): ");
         String dataStr = sc.nextLine();
         LocalDate dataConstrucao = LocalDate.parse(dataStr, formatter);
 
-        System.out.println("Area total: ");
+        System.out.print("Area total: ");
         float areaTotal = sc.nextFloat();
 
-        System.out.println("Area construida: ");
+        System.out.print("Area construida: ");
         float areaConstruida = sc.nextFloat();
 
-        System.out.println("Quantidade de dormitorios: ");
+        System.out.print("Quantidade de dormitorios: ");
         int qntDormitorios = sc.nextInt();
 
-        System.out.println("Quantidade de banheiros: ");
+        System.out.print("Quantidade de banheiros: ");
         int qntBanheiros = sc.nextInt();
 
-        System.out.println("Quantidade de vagas na garagem: ");
+        System.out.print("Quantidade de vagas na garagem: ");
         int qntVagasGaragem = sc.nextInt();
 
-        System.out.println("Valor do IPTU: ");
+        System.out.print("Valor do IPTU: ");
         float valorIPTU = sc.nextFloat();
 
-        System.out.println("Valor de venda: ");
+        System.out.print("Valor de venda: ");
         float valorVenda = sc.nextFloat();
 
-        System.out.println("Valor do alguel: ");
+        System.out.print("Valor do alguel: ");
         float valorAluguel = sc.nextFloat();
 
-        System.out.println("Andar do apartamento: ");
+        System.out.print("Andar do apartamento: ");
         int andar = sc.nextInt();
 
-        System.out.println("valor do condominio: ");
+        System.out.print("valor do condominio: ");
         float valorCondominio = sc.nextFloat();
 
         String tipoStr;
@@ -680,7 +681,7 @@ public class sistema_CauanIgorVinicius{
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("Codigo do imovel: ");
+        System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
         System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
@@ -688,38 +689,38 @@ public class sistema_CauanIgorVinicius{
 
         sc.nextLine();
 
-        System.out.println("Endereco: ");
+        System.out.print("Endereco: ");
         String endereco = sc.nextLine();
 
-        System.out.println("Data de construcao (dd/MM/yyyy): ");
+        System.out.print("Data de construcao (dd/MM/yyyy): ");
         String dataStr = sc.nextLine();
         LocalDate dataConstrucao = LocalDate.parse(dataStr, formatter);
 
-        System.out.println("Area total: ");
+        System.out.print("Area total: ");
         float areaTotal = sc.nextFloat();
 
-        System.out.println("Area construida: ");
+        System.out.print("Area construida: ");
         float areaConstruida = sc.nextFloat();
 
-        System.out.println("Quantidade de dormitorios: ");
+        System.out.print("Quantidade de dormitorios: ");
         int qntDormitorios = sc.nextInt();
 
-        System.out.println("Quantidade de banheiros: ");
+        System.out.print("Quantidade de banheiros: ");
         int qntBanheiros = sc.nextInt();
 
-        System.out.println("Quantidade de vagas na garagem: ");
+        System.out.print("Quantidade de vagas na garagem: ");
         int qntVagasGaragem = sc.nextInt();
 
-        System.out.println("Valor do IPTU: ");
+        System.out.print("Valor do IPTU: ");
         float valorIPTU = sc.nextFloat();
 
-        System.out.println("Valor de venda: ");
+        System.out.print("Valor de venda: ");
         float valorVenda = sc.nextFloat();
 
-        System.out.println("Valor do alguel: ");
+        System.out.print("Valor do alguel: ");
         float valorAluguel = sc.nextFloat();
 
-        System.out.println("Imposto federal: ");
+        System.out.print("Imposto federal: ");
         float taxaImpostoFederal = sc.nextFloat();
 
         String tipoStr;
@@ -879,7 +880,7 @@ public class sistema_CauanIgorVinicius{
         System.out.print("Codigo do imovel: ");
         int codigoImovel = sc.nextInt();
 
-        System.out.println("Tipo do imovel (0 - aluguel | 1 - venda): ");
+        System.out.print("Tipo do imovel (0 - aluguel | 1 - venda): ");
         int tipo = sc.nextInt();
 
         sc.nextLine();

@@ -19,7 +19,7 @@ import aluguel.Aluguel_CauanIgorVinicius;
 
 public class sistema_CauanIgorVinicius{
 
-    public static void main(String[] args) {
+    public static void sistema() {
 
         Imobiliaria_CauanIgorVinicius imobiliaria = new Imobiliaria_CauanIgorVinicius();
 

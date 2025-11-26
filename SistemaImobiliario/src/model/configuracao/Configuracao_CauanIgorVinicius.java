@@ -98,6 +98,8 @@ public class Configuracao_CauanIgorVinicius implements Serializable{
             
             oos.writeObject(objeto);
 
+            oos.close();
+
             
         }
         catch (Exception e)

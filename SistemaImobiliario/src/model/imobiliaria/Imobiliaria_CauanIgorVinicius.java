@@ -39,6 +39,11 @@ public class Imobiliaria_CauanIgorVinicius {
     private ArrayList<Corretor_CauanIgorVinicius> corretores;
     private ArrayList<Seguro_CauanIgorVinicius> seguros;
     private Configuracao_CauanIgorVinicius configuracoes;
+    private static Imobiliaria_CauanIgorVinicius instance = new Imobiliaria_CauanIgorVinicius();
+
+    public static Imobiliaria_CauanIgorVinicius getInstance(){
+        return instance;
+    }
 
     public Imobiliaria_CauanIgorVinicius() {
         this.nome = "imobiliaria";
@@ -51,12 +56,12 @@ public class Imobiliaria_CauanIgorVinicius {
         this.corretores = new ArrayList<>();
         this.seguros = new ArrayList<>();
 
-        this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/alugueis.dat");
-        this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/vendas.dat");
-        this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/imoveis.dat");
-        this.clientes = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/clientes.dat");
-        this.corretores = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/corretores.dat");
-        this.seguros = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/seguros.dat");
+        this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/alugueis.dat");
+        this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/vendas.dat");
+        this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/imoveis.dat");
+        this.clientes = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/clientes.dat");
+        this.corretores = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/corretores.dat");
+        this.seguros = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/seguros.dat");
     }
 
     public Imobiliaria_CauanIgorVinicius(String nome, String endereco) {
@@ -70,12 +75,12 @@ public class Imobiliaria_CauanIgorVinicius {
         this.corretores = new ArrayList<>();
         this.seguros = new ArrayList<>();
 
-        this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/alugueis.dat");
-        this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/vendas.dat");
-        this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/imoveis.dat");
-        this.clientes = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/clientes.dat");
-        this.corretores = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/corretores.dat");
-        this.seguros = Configuracao_CauanIgorVinicius.lerObjetos("arquivos/seguros.dat");
+        this.alugueis = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/alugueis.dat");
+        this.vendas = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/vendas.dat");
+        this.imoveis = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/imoveis.dat");
+        this.clientes = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/clientes.dat");
+        this.corretores = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/corretores.dat");
+        this.seguros = Configuracao_CauanIgorVinicius.lerObjetos("SistemaImobiliario/arquivos/seguros.dat");
     }
     
     public void addAluguel(Aluguel_CauanIgorVinicius aluguel)
@@ -200,12 +205,12 @@ public class Imobiliaria_CauanIgorVinicius {
     
     public void salvarObjetos()
     {
-        Configuracao_CauanIgorVinicius.salvarObjetos(alugueis, "arquivos/alugueis.dat");
-        Configuracao_CauanIgorVinicius.salvarObjetos(vendas, "arquivos/vendas.dat");
-        Configuracao_CauanIgorVinicius.salvarObjetos(imoveis, "arquivos/imoveis.dat");
-        Configuracao_CauanIgorVinicius.salvarObjetos(clientes, "arquivos/clientes.dat");
-        Configuracao_CauanIgorVinicius.salvarObjetos(corretores, "arquivos/corretores.dat");
-        Configuracao_CauanIgorVinicius.salvarObjetos(seguros, "arquivos/seguros.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(alugueis, "SistemaImobiliario/arquivos/alugueis.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(vendas, "SistemaImobiliario/arquivos/vendas.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(imoveis, "SistemaImobiliario/arquivos/imoveis.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(clientes, "SistemaImobiliario/arquivos/clientes.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(corretores, "SistemaImobiliario/arquivos/corretores.dat");
+        Configuracao_CauanIgorVinicius.salvarObjetos(seguros, "SistemaImobiliario/arquivos/seguros.dat");
     }
  
     public void listarTodosImoveis()
